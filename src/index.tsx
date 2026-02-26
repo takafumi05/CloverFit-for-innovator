@@ -1208,10 +1208,10 @@ function landingHTML(): string {
 
     <div class="evidence-banner r on">
       <div class="evidence-body">
-        <span class="evidence-label">Research — University of South Australia</span>
+        <span class="evidence-label">Research — James Cook University</span>
         <p class="evidence-text"><em>運動と心理介入の組み合わせ</em>が、ヨガ・マインドフルネスなど他のどのアプローチよりも、メンタルヘルス改善効果が最も高い。</p>
       </div>
-      <span class="evidence-src">Singh et al., Br J Sports Med., 2023</span>
+      <span class="evidence-src">Munro et al., Br J Sports Med., 2026</span>
     </div>
 
     <div class="feat-grid">
