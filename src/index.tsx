@@ -1207,14 +1207,11 @@ function landingHTML(): string {
     </div>
 
     <div class="evidence-banner r on">
-      <div class="evidence-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      </div>
       <div class="evidence-body">
-        <span class="evidence-label">Research — Swansea University</span>
-        <p class="evidence-text"><em>運動と心理介入の組み合わせ</em>が、ヨガ・マインドフルネスなど他のどのアプローチよりも、メンタルヘルス改善効果が最も高いことが示されている。</p>
+        <span class="evidence-label">Research — University of South Australia</span>
+        <p class="evidence-text"><em>運動と心理介入の組み合わせ</em>が、ヨガ・マインドフルネスなど他のどのアプローチよりも、メンタルヘルス改善効果が最も高い。</p>
       </div>
-      <span class="evidence-src">Mahindru et al., Front. Psychol., 2023</span>
+      <span class="evidence-src">Singh et al., Br J Sports Med., 2023</span>
     </div>
 
     <div class="feat-grid">
