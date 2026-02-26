@@ -61,6 +61,25 @@ app.post('/api/booking', async (c) => {
     const result = await c.env.DB.prepare(
       `INSERT INTO bookings (name, email, phone, position, company, message) VALUES (?, ?, ?, ?, ?, ?)`
     ).bind(name.trim(), email.trim(), phone?.trim()||null, position.trim(), company?.trim()||null, message?.trim()||null).run()
+
+    // メール通知（Google Apps Script経由）
+    const posMap: Record<string, string> = {
+      founder: '起業家・創業者', ceo: '経営者・代表取締役',
+      exec: '役員・CxO', sole: '個人事業主', other: 'その他'
+    }
+    fetch('https://script.google.com/macros/s/AKfycbwuLO8UNHAAta_bPngsofFETyqW6Sw04m5YcgqywTxOeV3vyEqJCi7yvd3WbiasgdUftA/exec', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: name.trim(),
+        email: email.trim(),
+        phone: phone?.trim() || 'なし',
+        position: posMap[position.trim()] || position.trim(),
+        company: company?.trim() || 'なし',
+        message: message?.trim() || 'なし'
+      })
+    }).catch(() => {}) // 通知失敗しても申し込み自体は成功扱い
+
     return c.json({ success: true, id: result.meta.last_row_id })
   } catch (err) {
     console.error('DB Error:', err)
