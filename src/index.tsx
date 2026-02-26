@@ -1256,7 +1256,7 @@ function landingHTML(): string {
       </div>
       <div class="origin-top-right r d1">
         <div class="origin-photo-box">
-          <img src="/images/training-bg.jpg" alt="小川貴史" />
+          <img src="/images/founder.jpg" alt="小川貴史" />
           <span class="origin-photo-label">Founder — 小川 貴史</span>
         </div>
       </div>
