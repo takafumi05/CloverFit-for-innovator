@@ -231,8 +231,8 @@ function landingHTML(): string {
     }
     @media(max-width:768px){ .wrap{ padding: 0 24px; } }
 
-    section { padding: 180px 0; }
-    @media(max-width:768px){ section{ padding: 110px 0; } }
+    section { padding: 110px 0; }
+    @media(max-width:768px){ section{ padding: 72px 0; } }
 
     /* =============================================
        TYPOGRAPHY
