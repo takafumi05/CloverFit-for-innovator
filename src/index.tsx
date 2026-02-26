@@ -1119,7 +1119,7 @@ function landingHTML(): string {
   </div>
 
   <div class="hero-portrait">
-    <img src="/images/training-bg.jpg"
+    <img src="/images/founder.jpg"
          alt="小川貴史 — CloverFit 創業者"
          id="hero-portrait-img" />
     <div class="hero-portrait-fallback" id="hero-portrait-fallback" style="display:none;">
