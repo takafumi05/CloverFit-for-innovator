@@ -1093,8 +1093,8 @@ function landingHTML(): string {
     </h1>
 
     <p class="hero-body r d2 on">
-      <strong style="font-weight:700; color:rgba(232,232,232,.85);">起業家・経営者のための<br />フィジカル × メンタルトレーニング。</strong><br />
-      ジム、カウンセリング、交流会——<br />全部別々に通う時間は、確保できない。
+      ジム、カウンセリング、交流会——<br />全部別々に通う時間は確保できない。<br />
+      <strong style="font-weight:700; color:rgba(232,232,232,.85);">起業家・経営者のための<br />フィジカル × メンタルトレーニング。</strong>
     </p>
 
     <div class="hero-pillars r d3 on">
