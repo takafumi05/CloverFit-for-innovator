@@ -1474,6 +1474,12 @@ function landingHTML(): string {
 </footer>
 
 
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  emailjs.init('Bo0CYQhPE97QN9Q_K');
+</script>
+
 <!-- JS -->
 <script>
   /* Image error handler */
@@ -1555,6 +1561,16 @@ function landingHTML(): string {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || '送信エラー');
+
+      // EmailJSでメール通知
+      emailjs.send('service_dpaxz70', 'template_vy1oi7d', {
+        name:     name.value.trim(),
+        email:    email.value.trim(),
+        phone:    document.getElementById('f-phone').value.trim() || 'なし',
+        position: pos.options[pos.selectedIndex].text,
+        company:  document.getElementById('f-co').value.trim() || 'なし',
+        message:  document.getElementById('f-msg').value.trim() || 'なし'
+      }).catch(() => {});
 
       form.style.transition = 'opacity .35s ease, transform .35s ease';
       form.style.opacity = '0';
