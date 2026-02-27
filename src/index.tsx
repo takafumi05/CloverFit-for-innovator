@@ -1086,8 +1086,8 @@ function landingHTML(): string {
 
   <div class="nav-links">
     <a href="#problem" class="nav-link" data-section="problem">課題</a>
-    <a href="#solution" class="nav-link active" data-section="solution">ソリューション</a>
-    <a href="#origin" class="nav-link" data-section="origin">創業者</a>
+    <a href="#solution" class="nav-link" data-section="solution">ソリューション</a>
+    <a href="#origin" class="nav-link active" data-section="origin">創業者</a>
     <a href="#supervisor" class="nav-link" data-section="supervisor">監修</a>
     <a href="#booking" class="nav-link" data-section="booking">体験予約</a>
   </div>
@@ -1272,7 +1272,7 @@ function landingHTML(): string {
           <div class="story-block-body">
             <span class="story-period">高校時代</span>
             <p class="story-title">トレーナーとして、現場に立つ。</p>
-            <p class="story-desc">高校生のうちからパーソナルトレーナーとして働き始め、身体づくりの本質を現場で学んだ。「動ける身体を作ること」が自分のすべてだった。</p>
+            <p class="story-desc">高校生のうちからパーソナルトレーナーとして働き始め、身体づくりの本質を現場で学ぶ。学んだ知識を自分の身体づくりに活かし、高校生でボディコンテストにも出場する。</p>
           </div>
         </div>
 
@@ -1282,9 +1282,9 @@ function landingHTML(): string {
             <div class="story-line-bar"></div>
           </div>
           <div class="story-block-body">
-            <span class="story-period">大学時代</span>
+            <span class="story-period">大学入学</span>
             <p class="story-title">「他人よりかっこいい身体を目指すこと」が、すべてだった。</p>
-            <p class="story-desc">慶應義塾大学体育会でウエイトリフティングに取り組みながら、ボディビル競技でも結果を残した。数字と鏡の中の肉体だけを追いかける日々。</p>
+            <p class="story-desc">慶應義塾大学体育会でウエイトリフティングに取り組みながら、ボディビル競技でも結果を残した。重量の数字と鏡の中の肉体だけを追いかける日々。</p>
           </div>
         </div>
 
@@ -1296,7 +1296,7 @@ function landingHTML(): string {
           <div class="story-block-body">
             <span class="story-period">転機</span>
             <p class="story-title">過度な減量で、心が折れた。</p>
-            <p class="story-desc">極限まで絞り込む減量を繰り返すうち、精神的に追い詰められた。身体は仕上がっていく。でも、心がついてこなかった。「身体だけを鍛えても、人は健康にはなれない」——その実感が、すべての出発点になった。</p>
+            <p class="story-desc">極限まで絞り込む減量を繰り返すうち、精神的に追い詰められた。身体は仕上がっていっても、心がついてこなかった。「身体だけを鍛えても、人は健康にはなれない」——その実感が、CloverFitの出発点になった。</p>
           </div>
         </div>
 
@@ -1305,9 +1305,9 @@ function landingHTML(): string {
             <div class="story-dot accent"></div>
           </div>
           <div class="story-block-body">
-            <span class="story-period">そして、CloverFit</span>
+            <span class="story-period">CloverFit創業</span>
             <p class="story-title">自分に必要だったものを、仕組みにした。</p>
-            <p class="story-desc">心と身体を同時に整え、支え合える仲間がいる環境。自分が欲しかったその場所を、起業家・経営者のためのプログラムとして設計。</p>
+            <p class="story-desc">心と身体を同時に整え、支え合える仲間がいる環境。自分が欲しかったその場所を、プログラムとして設計し、高齢者施設や企業への導入を実現。自分自身が事業を行う中で、起業家・経営者のメンタルヘルス問題に着目し、CloverFit for Innovatorを立ち上げた。</p>
           </div>
         </div>
 
