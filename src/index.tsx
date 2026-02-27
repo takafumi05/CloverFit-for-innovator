@@ -1126,15 +1126,15 @@ function landingHTML(): string {
     <div class="hero-pillars r d3 on">
       <div class="hero-pillar">
         <span class="hp-label">Body</span>
-        <span class="hp-text">いつまでも動ける身体をつくる機能的なトレーニング</span>
+        <span class="hp-text">いつまでも動ける身体をつくる機能的なトレーニング。トレーニング・メンタルケア・仲間作りを、1つのセッションに凝縮した。</span>
       </div>
       <div class="hero-pillar">
         <span class="hp-label">Mind</span>
-        <span class="hp-text">Well-being研究に基づく心理介入</span>
+        <span class="hp-text">Well-being研究に基づく心理介入。24時間止まらない頭を、強制的にオフにする。身体を動かすことでしか得られない完全なリセット。</span>
       </div>
       <div class="hero-pillar">
         <span class="hp-label">Community</span>
-        <span class="hp-text">同じ悩みを持つ起業家・経営者の特別な空間</span>
+        <span class="hp-text">同じ悩みを持つ起業家・経営者の特別な空間。同じ重圧を知る仲間同士だから、すぐに分かりあえる。</span>
       </div>
     </div>
 
@@ -1314,23 +1314,7 @@ function landingHTML(): string {
       </div>
     </div>
 
-    <div class="card-grid-3">
-      <div class="card r d1 on">
-        <span class="card-lbl">Body</span>
-        <h3 class="card-h">いつまでも動ける身体を。</h3>
-        <p class="card-p">いつまでも動ける身体をつくる機能的なトレーニング。トレーニング・メンタルケア・仲間作りを、1つのセッションに凝縮した。</p>
-      </div>
-      <div class="card r d2 on">
-        <span class="card-lbl">Mind</span>
-        <h3 class="card-h">心を整える、科学的なアプローチ。</h3>
-        <p class="card-p">Well-being研究に基づく心理介入。24時間止まらない頭を、強制的にオフにする。身体を動かすことでしか得られない完全なリセット。</p>
-      </div>
-      <div class="card r d3 on">
-        <span class="card-lbl">Community</span>
-        <h3 class="card-h">1人じゃないから、続く。</h3>
-        <p class="card-p">同じ悩みを持つ起業家・経営者の特別な空間。同じ重圧を知る仲間同士だから、すぐに分かりあえる。</p>
-      </div>
-    </div>
+
 
   </div>
 </section>
