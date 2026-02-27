@@ -1086,8 +1086,8 @@ function landingHTML(): string {
 
   <div class="nav-links">
     <a href="#problem" class="nav-link" data-section="problem">課題</a>
-    <a href="#solution" class="nav-link" data-section="solution">ソリューション</a>
-    <a href="#origin" class="nav-link active" data-section="origin">創業者</a>
+    <a href="#solution" class="nav-link active" data-section="solution">ソリューション</a>
+    <a href="#origin" class="nav-link" data-section="origin">創業者</a>
     <a href="#supervisor" class="nav-link" data-section="supervisor">監修</a>
     <a href="#booking" class="nav-link" data-section="booking">体験予約</a>
   </div>
