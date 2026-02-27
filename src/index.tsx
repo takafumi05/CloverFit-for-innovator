@@ -2,6 +2,7 @@ import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import { serveStatic } from 'hono/cloudflare-workers'
 
+
 type Bindings = {
   DB: D1Database
 }
@@ -62,23 +63,30 @@ app.post('/api/booking', async (c) => {
       `INSERT INTO bookings (name, email, phone, position, company, message) VALUES (?, ?, ?, ?, ?, ?)`
     ).bind(name.trim(), email.trim(), phone?.trim()||null, position.trim(), company?.trim()||null, message?.trim()||null).run()
 
-    // メール通知（Google Apps Script経由）
+    // EmailJS REST APIでメール通知（waitUntilで確実に送信）
     const posMap: Record<string, string> = {
-      founder: '起業家・創業者', ceo: '経営者・代表取締役',
-      exec: '役員・CxO', sole: '個人事業主', other: 'その他'
+      founder:'起業家・創業者', ceo:'経営者・代表取締役',
+      exec:'役員・CxO', sole:'個人事業主', other:'その他'
     }
-    fetch('https://script.google.com/macros/s/AKfycbwuLO8UNHAAta_bPngsofFETyqW6Sw04m5YcgqywTxOeV3vyEqJCi7yvd3WbiasgdUftA/exec', {
+    const emailPromise = fetch('https://api.emailjs.com/api/v1.0/email/send', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        name: name.trim(),
-        email: email.trim(),
-        phone: phone?.trim() || 'なし',
-        position: posMap[position.trim()] || position.trim(),
-        company: company?.trim() || 'なし',
-        message: message?.trim() || 'なし'
+        service_id:  'service_dpaxz7o',
+        template_id: 'template_vy1oi7d',
+        user_id:     'Bo0CYQhPE97QN9Q_K',
+        accessToken: 'tzThZAIG-thd4jgdI6m8I',
+        template_params: {
+          name:     name.trim(),
+          email:    email.trim(),
+          phone:    phone?.trim() || 'なし',
+          position: posMap[position.trim()] || position.trim(),
+          company:  company?.trim() || 'なし',
+          message:  message?.trim() || 'なし'
+        }
       })
-    }).catch(() => {}) // 通知失敗しても申し込み自体は成功扱い
+    }).then(r => console.log('EmailJS status:', r.status)).catch(e => console.error('EmailJS Error:', e))
+    c.executionCtx.waitUntil(emailPromise)
 
     return c.json({ success: true, id: result.meta.last_row_id })
   } catch (err) {
@@ -1562,15 +1570,20 @@ function landingHTML(): string {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || '送信エラー');
 
-      // EmailJSでメール通知
-      emailjs.send('service_dpaxz70', 'template_vy1oi7d', {
-        name:     name.value.trim(),
-        email:    email.value.trim(),
-        phone:    document.getElementById('f-phone').value.trim() || 'なし',
-        position: pos.options[pos.selectedIndex].text,
-        company:  document.getElementById('f-co').value.trim() || 'なし',
-        message:  document.getElementById('f-msg').value.trim() || 'なし'
-      }).catch(() => {});
+      // EmailJSでメール通知（ブラウザから直接送信）
+      try {
+        await emailjs.send('service_dpaxz70', 'template_vy1oi7d', {
+          name:     name.value.trim(),
+          email:    email.value.trim(),
+          phone:    document.getElementById('f-phone').value.trim() || 'なし',
+          position: pos.options[pos.selectedIndex].text,
+          company:  document.getElementById('f-co').value.trim() || 'なし',
+          message:  document.getElementById('f-msg').value.trim() || 'なし'
+        });
+        console.log('メール通知送信成功');
+      } catch(mailErr) {
+        console.error('メール通知エラー:', mailErr);
+      }
 
       form.style.transition = 'opacity .35s ease, transform .35s ease';
       form.style.opacity = '0';

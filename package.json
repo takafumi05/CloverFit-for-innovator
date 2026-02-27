@@ -12,6 +12,7 @@
     "cf-typegen": "wrangler types --env-interface CloudflareBindings"
   },
   "dependencies": {
+    "@emailjs/nodejs": "^5.0.2",
     "@hono/node-server": "^1.19.9",
     "hono": "^4.12.2"
   },
