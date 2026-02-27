@@ -328,9 +328,10 @@ function landingHTML(): string {
     }
 
     .nav-links {
-      display: flex; align-items: center; gap: 2px;
+      display: flex; align-items: center; gap: 8px;
       justify-content: center;
       width: 100%;
+      padding-left: 32px;
     }
     .nav-link {
       font-family: 'Inter', sans-serif;
@@ -390,7 +391,8 @@ function landingHTML(): string {
     @media(max-width:640px) {
       .nav-links {
         display: flex;
-        gap: 0;
+        gap: 4px;
+        padding-left: 16px;
       }
       .nav-link {
         font-size: 9px;
