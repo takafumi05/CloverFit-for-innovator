@@ -1075,7 +1075,7 @@ function landingHTML(): string {
 <body>
 
 <!-- NAV -->
-<nav id="nav">
+<nav id="nav" data-scrolled="false" data-visible="true">
   <a href="#hero" class="nav-logo">
     <img src="/images/cloverfit-logo.png"
          alt="CloverFit"
@@ -1086,7 +1086,7 @@ function landingHTML(): string {
 
   <div class="nav-links">
     <a href="#problem" class="nav-link" data-section="problem">課題</a>
-    <a href="#solution" class="nav-link" data-section="solution">ソリューション</a>
+    <a href="#solution" class="nav-link active" data-section="solution">ソリューション</a>
     <a href="#origin" class="nav-link" data-section="origin">創業者</a>
     <a href="#supervisor" class="nav-link" data-section="supervisor">監修</a>
     <a href="#booking" class="nav-link" data-section="booking">体験予約</a>
@@ -1159,7 +1159,7 @@ function landingHTML(): string {
         <h2 class="r d1 on">いる人ほど、<br />心は<em>壊れやすい</em>。
         </h2>
         <p class="sub r d2 on">
-          起業後のコミュニティの欠如、トレーニング時間の消滅、心理的ストレス。
+          起業後の心理的ストレス、トレーニング時間の消滅、コミュニティの欠如。
         </p>
       </div>
 
@@ -1220,7 +1220,7 @@ function landingHTML(): string {
       <div class="feat-card r d1 on">
         <span class="feat-n">01</span>
         <h3 class="feat-h"><em>60分</em>で、全部済む。</h3>
-        <p class="feat-p">トレーニング・メンタルケア・仲間作り。別々に通う時間はない。だから1つのセッションに凝縮した。</p>
+        <p class="feat-p">トレーニング・メンタルケア・仲間作り。別々に通う時間はない。だから1つのセッションに凝縮。</p>
       </div>
       <div class="feat-card r d2 on">
         <span class="feat-n">02</span>
@@ -1229,7 +1229,7 @@ function landingHTML(): string {
       </div>
       <div class="feat-card r d3 on">
         <span class="feat-n">03</span>
-        <h3 class="feat-h">思考が止まる<em>60分</em>。</h3>
+        <h3 class="feat-h">体だけじゃない<em>60分</em>。</h3>
         <p class="feat-p">24時間止まらない頭を、強制的にオフにする。身体を動かすことでしか得られない、完全なリセット。</p>
       </div>
       <div class="feat-card r d4 on">
