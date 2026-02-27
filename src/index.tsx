@@ -343,8 +343,7 @@ function landingHTML(): string {
     }
     .nav-link:hover { color: #fff; background: rgba(255,255,255,.06); }
     .nav-link.active { color: #fff; }
-    .nav-right { display: flex; justify-content: flex-end; }
-    @media(max-width:640px){ .nav-links{ display: none; } }
+    .nav-right { display: flex; justify-content: flex-end; align-items: center; gap: 12px; }
     .nav-logo {
       display: inline-block;
       line-height: 0;
@@ -372,6 +371,88 @@ function landingHTML(): string {
     }
     .nav-btn:hover { background: #00c94f; box-shadow: 0 4px 20px rgba(0,224,90,.25); }
     @media(max-width:768px){ nav{ padding: 18px 24px; } }
+
+    /* ハンバーガーボタン */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px; height: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 6px;
+      transition: background .2s;
+    }
+    .nav-hamburger:hover { background: rgba(255,255,255,.06); }
+    .nav-hamburger span {
+      display: block;
+      width: 20px; height: 1.5px;
+      background: rgba(255,255,255,.7);
+      border-radius: 2px;
+      transition: transform .3s, opacity .3s;
+      transform-origin: center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    @media(max-width:640px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-btn { display: none; }
+    }
+
+    /* モバイルメニュードロワー */
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 299;
+      background: rgba(5,5,5,.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+    .nav-drawer.open {
+      display: flex;
+      opacity: 1;
+    }
+    .nav-drawer-link {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -.01em;
+      color: rgba(255,255,255,.5);
+      text-decoration: none;
+      padding: 16px 40px;
+      border-radius: 10px;
+      transition: color .2s, background .2s;
+      width: 260px;
+      text-align: center;
+    }
+    .nav-drawer-link:hover,
+    .nav-drawer-link.active { color: #fff; }
+    .nav-drawer-link.active { color: var(--accent); }
+    .nav-drawer-cta {
+      margin-top: 24px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 15px; font-weight: 700;
+      letter-spacing: .04em;
+      color: #050505;
+      background: var(--accent);
+      padding: 16px 48px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .nav-drawer-cta:hover { background: #00c94f; }
 
     /* =============================================
        HERO
@@ -1097,8 +1178,21 @@ function landingHTML(): string {
 
   <div class="nav-right">
     <a href="#booking" class="nav-btn">体験予約</a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- モバイルドロワーメニュー -->
+<div class="nav-drawer" id="nav-drawer">
+  <a href="#problem" class="nav-drawer-link" data-section="problem">課題</a>
+  <a href="#solution" class="nav-drawer-link" data-section="solution">ソリューション</a>
+  <a href="#origin" class="nav-drawer-link" data-section="origin">創業者</a>
+  <a href="#supervisor" class="nav-drawer-link" data-section="supervisor">監修</a>
+  <a href="#booking" class="nav-drawer-link" data-section="booking">体験予約</a>
+  <a href="#booking" class="nav-drawer-cta">体験予約する</a>
+</div>
 
 
 <!-- HERO -->
@@ -1470,6 +1564,7 @@ function landingHTML(): string {
   /* Nav scroll + アクティブ目次 */
   const nav = document.getElementById('nav');
   const navLinks = document.querySelectorAll('.nav-link[data-section]');
+  const drawerLinks = document.querySelectorAll('.nav-drawer-link[data-section]');
   const sections = ['problem','solution','origin','supervisor','booking'].map(id => document.getElementById(id));
 
   window.addEventListener('scroll', () => {
@@ -1482,7 +1577,34 @@ function landingHTML(): string {
     navLinks.forEach(link => {
       link.classList.toggle('active', link.dataset.section === current);
     });
+    drawerLinks.forEach(link => {
+      link.classList.toggle('active', link.dataset.section === current);
+    });
   }, { passive: true });
+
+  /* ハンバーガーメニュー */
+  const hamburger = document.getElementById('nav-hamburger');
+  const drawer = document.getElementById('nav-drawer');
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = drawer.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  // ドロワーリンククリックで閉じる
+  drawerLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      hamburger.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+  document.querySelector('.nav-drawer-cta').addEventListener('click', () => {
+    drawer.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.style.overflow = '';
+  });
 
   /* Scroll reveal */
   if (window.innerWidth <= 768) {
