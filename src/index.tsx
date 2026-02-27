@@ -377,10 +377,9 @@ function landingHTML(): string {
       position: relative;
       min-height: 100vh;
       display: grid;
-      grid-template-columns: 1fr 480px;
+      grid-template-columns: 1fr;
       overflow: hidden;
     }
-    @media(max-width:960px){ #hero{ grid-template-columns: 1fr; } }
 
     .hero-bg {
       position: absolute; inset: 0; z-index: 0;
@@ -1145,29 +1144,7 @@ function landingHTML(): string {
     </div>
   </div>
 
-  <div class="hero-portrait">
-    <img src="/images/founder.jpg"
-         alt="小川貴史 — CloverFit 創業者"
-         id="hero-portrait-img" />
-    <div class="hero-portrait-fallback" id="hero-portrait-fallback" style="display:none;">
-      <div style="text-align:center; padding: 40px 24px;">
-        <div style="width:80px; height:80px; border-radius:50%; border:1px solid #222; display:flex; align-items:center; justify-content:center; margin:0 auto 20px; background:#0c0c0c;">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="1.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </div>
-        <span style="font-family:'Noto Sans JP',sans-serif; font-weight:700; font-size:15px; color:rgba(255,255,255,.55); display:block; margin-bottom:5px;">小川 貴史</span>
-        <span style="font-family:'Inter',sans-serif; font-size:10px; color:#333; letter-spacing:.12em; text-transform:uppercase;">CloverFit Founder</span>
-      </div>
-    </div>
-    <div class="portrait-caption">
-      <span class="portrait-name">小川 貴史</span>
-      <span class="portrait-meta">
-        慶應義塾大学 経済学部<br />
-        神奈川県ウエイトリフティング選手権 優勝<br />
-        FWJ WEST TOKYO TEEN部門 優勝<br />
-        高齢者施設・企業への導入実績あり
-      </span>
-    </div>
-  </div>
+
 
 </section>
 
