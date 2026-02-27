@@ -243,6 +243,9 @@ function landingHTML(): string {
       transition: opacity .65s ease-out, transform .65s ease-out;
     }
     .r.on { opacity: 1; transform: none; }
+    @media(max-width:768px){
+      .r { opacity: 1; transform: none; transition: none; }
+    }
     .d1 { transition-delay: .1s; }
     .d2 { transition-delay: .2s; }
     .d3 { transition-delay: .3s; }
@@ -1482,12 +1485,17 @@ function landingHTML(): string {
   }, { passive: true });
 
   /* Scroll reveal */
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.r').forEach(el => obs.observe(el));
+  if (window.innerWidth <= 768) {
+    // スマホは即座に全表示
+    document.querySelectorAll('.r').forEach(el => el.classList.add('on'));
+  } else {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+    document.querySelectorAll('.r').forEach(el => obs.observe(el));
+  }
 
   /* Form — APIに送信 */
   const form      = document.getElementById('bform');
