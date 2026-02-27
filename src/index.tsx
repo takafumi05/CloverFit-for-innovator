@@ -1088,8 +1088,8 @@ function landingHTML(): string {
     <a href="#problem" class="nav-link" data-section="problem">課題</a>
     <a href="#solution" class="nav-link" data-section="solution">ソリューション</a>
     <a href="#origin" class="nav-link" data-section="origin">創業者</a>
-    <a href="#supervisor" class="nav-link" data-section="supervisor">監修</a>
-    <a href="#booking" class="nav-link active" data-section="booking">体験予約</a>
+    <a href="#supervisor" class="nav-link active" data-section="supervisor">監修</a>
+    <a href="#booking" class="nav-link" data-section="booking">体験予約</a>
   </div>
 
   <div class="nav-right">
@@ -1327,7 +1327,7 @@ function landingHTML(): string {
     <div class="sup-section-inner">
       <div class="sup-section-left r on">
         <span class="label">Supervisor</span>
-        <h2>このプログラムには、<br />科学的根拠がある。</h2>
+        <h2>このプログラムには<br />科学的根拠がある。</h2>
         <p class="sub">Well-being研究の第一人者、前野隆司教授が監修。幸福学の知見をプログラムに組み込むことで、心理的効果を科学的に担保しています。</p>
       </div>
       <div class="sup-card-wrap r d2 on">
