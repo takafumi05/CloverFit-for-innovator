@@ -529,9 +529,9 @@ function landingHTML(): string {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 160px 64px 140px 48px;
+      padding: 120px 64px 140px 48px;
     }
-    @media(max-width:960px){ .hero-content{ padding: 140px 24px 80px; } }
+    @media(max-width:960px){ .hero-content{ padding: 110px 24px 80px; } }
 
     .hero-tag {
       display: inline-flex;
