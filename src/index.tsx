@@ -1111,11 +1111,11 @@ function landingHTML(): string {
   <div class="hero-vignette"></div>
 
   <div class="hero-content">
-    <div class="hero-tag r">
+    <div class="hero-tag r on">
       <span class="hero-tag-label">CloverFit for Innovator</span>
     </div>
 
-    <h1 class="r d1">
+    <h1 class="r d1 on">
       <em>身体</em>・<em>心</em>・<em>仲間</em>が<br />60分で揃う。
     </h1>
 
@@ -1178,17 +1178,16 @@ function landingHTML(): string {
     <div class="problem-inner">
 
       <div>
-        <span class="label r">Problem</span>
-        <h2 class="r d1">
-          挑戦している人ほど、<br />心は<em>壊れやすい</em>。
+        <span class="label r on">Problem</span>
+        <h2 class="r d1 on">いる人ほど、<br />心は<em>壊れやすい</em>。
         </h2>
-        <p class="sub r d2">
+        <p class="sub r d2 on">
           起業後のコミュニティの欠如、トレーニング時間の消滅、心理的ストレス。
         </p>
       </div>
 
       <div class="stat-stack">
-        <div class="stat-row r d1">
+        <div class="stat-row r d1 on">
           <div class="stat-n">87<span>%</span></div>
           <div class="stat-divider"></div>
           <div>
@@ -1196,7 +1195,7 @@ function landingHTML(): string {
             <span class="stat-src">Founder Reports, 2026</span>
           </div>
         </div>
-        <div class="stat-row r d2">
+        <div class="stat-row r d2 on">
           <div class="stat-n">49<span>%</span></div>
           <div class="stat-divider"></div>
           <div>
@@ -1204,7 +1203,7 @@ function landingHTML(): string {
             <span class="stat-src">Freeman et al., 2015</span>
           </div>
         </div>
-        <div class="stat-row r d3">
+        <div class="stat-row r d3 on">
           <div class="stat-n">10<span style="font-size:.45em;letter-spacing:0;vertical-align:super">倍</span></div>
           <div class="stat-divider"></div>
           <div>
@@ -1224,11 +1223,10 @@ function landingHTML(): string {
   <div class="wrap">
 
     <div class="sol-hd">
-      <span class="label r">Solution</span>
-      <h2 class="r d1">心も身体も<br />タフじゃなきゃ。</h2>
-      <p class="sol-sub r d2">起業家のための<br />フィジカル × メンタルトレーニング。</p>
-      <p class="sub r d3">
-        CloverFit for Innovatorは、60分で身体・心・仲間が揃う、<br />
+      <span class="label r on">Solution</span>
+      <h2 class="r d1 on">心も身体も<br />タフじゃなきゃ。</h2>
+      <p class="sol-sub r d2 on">起業家のための<br />フィジカル × メンタルトレーニング。</p>
+      <p class="sub r d3 on"> for Innovatorは、60分で身体・心・仲間が揃う、<br />
         起業家・経営者のための場所。
       </p>
     </div>
@@ -1242,22 +1240,22 @@ function landingHTML(): string {
     </div>
 
     <div class="feat-grid">
-      <div class="feat-card r d1">
+      <div class="feat-card r d1 on">
         <span class="feat-n">01</span>
         <h3 class="feat-h"><em>60分</em>で、全部済む。</h3>
         <p class="feat-p">トレーニング・メンタルケア・仲間作り。別々に通う時間はない。だから1つのセッションに凝縮した。</p>
       </div>
-      <div class="feat-card r d2">
+      <div class="feat-card r d2 on">
         <span class="feat-n">02</span>
         <h3 class="feat-h"><em>経営者だけ</em>の空間。</h3>
         <p class="feat-p">同じ重圧を知る仲間同士だから、すぐに分かりあえる。ただの交流会より深いつながりが、ここにある。</p>
       </div>
-      <div class="feat-card r d3">
+      <div class="feat-card r d3 on">
         <span class="feat-n">03</span>
         <h3 class="feat-h">思考が止まる<em>60分</em>。</h3>
         <p class="feat-p">24時間止まらない頭を、強制的にオフにする。身体を動かすことでしか得られない、完全なリセット。</p>
       </div>
-      <div class="feat-card r d4">
+      <div class="feat-card r d4 on">
         <span class="feat-n">04</span>
         <h3 class="feat-h"><em>忙しい毎日</em>からの解放。</h3>
         <p class="feat-p">60分だけ、経営を忘れて自分の心と身体に向き合う。それが翌日のパフォーマンスを、決定的に変える。</p>
@@ -1273,12 +1271,12 @@ function landingHTML(): string {
   <div class="wrap">
 
     <div class="origin-top-grid">
-      <div class="origin-top-left r">
+      <div class="origin-top-left r on">
         <span class="label">Origin</span>
         <h2>身体を鍛えるほど、<br />心が壊れていった。</h2>
         <p class="sub">高校時代からパーソナルトレーナーとして活動。慶應義塾大学でウエイトリフティング・ボディビルに打ち込む中で、身体だけを鍛え続けることの限界に気づいた。</p>
       </div>
-      <div class="origin-top-right r d1">
+      <div class="origin-top-right r d1 on">
         <div class="origin-photo-box">
           <img src="/images/founder.jpg" alt="小川貴史" />
           <span class="origin-photo-label">Founder — 小川 貴史</span>
@@ -1287,7 +1285,7 @@ function landingHTML(): string {
     </div>
 
     <div class="origin-timeline-wrap">
-      <div class="story-blocks r d2">
+      <div class="story-blocks r d2 on">
 
         <div class="story-block">
           <div class="story-block-line">
@@ -1340,17 +1338,17 @@ function landingHTML(): string {
     </div>
 
     <div class="card-grid-3">
-      <div class="card r d1">
+      <div class="card r d1 on">
         <span class="card-lbl">Body</span>
         <h3 class="card-h">いつまでも動ける身体を。</h3>
         <p class="card-p">いつまでも動ける身体をつくる機能的なトレーニング。トレーニング・メンタルケア・仲間作りを、1つのセッションに凝縮した。</p>
       </div>
-      <div class="card r d2">
+      <div class="card r d2 on">
         <span class="card-lbl">Mind</span>
         <h3 class="card-h">心を整える、科学的なアプローチ。</h3>
         <p class="card-p">Well-being研究に基づく心理介入。24時間止まらない頭を、強制的にオフにする。身体を動かすことでしか得られない完全なリセット。</p>
       </div>
-      <div class="card r d3">
+      <div class="card r d3 on">
         <span class="card-lbl">Community</span>
         <h3 class="card-h">1人じゃないから、続く。</h3>
         <p class="card-p">同じ悩みを持つ起業家・経営者の特別な空間。同じ重圧を知る仲間同士だから、すぐに分かりあえる。</p>
@@ -1366,12 +1364,12 @@ function landingHTML(): string {
   <div class="wrap">
 
     <div class="sup-section-inner">
-      <div class="sup-section-left r">
+      <div class="sup-section-left r on">
         <span class="label">Supervisor</span>
         <h2>科学的根拠が、<br />このプログラムを支える。</h2>
         <p class="sub">Well-being研究の第一人者、前野隆司教授が<br />監修。幸福学の知見をプログラムに組み込むことで、<br />心理的効果を科学的に担保しています。</p>
       </div>
-      <div class="sup-card-wrap r d2">
+      <div class="sup-card-wrap r d2 on">
         <div class="sup-card">
           <div class="sup-photo">
             <img src="/images/supervisor.jpg"
@@ -1404,17 +1402,17 @@ function landingHTML(): string {
     <div class="book-grid">
 
       <div class="book-sticky">
-        <span class="label r">Contact</span>
-        <h2 class="r d1">まずは、<br />体験から。</h2>
-        <p class="sub r d2">起業家・経営者の方を対象にご案内しております。</p>
-        <p class="book-note r d3">
+        <span class="label r on">Contact</span>
+        <h2 class="r d1 on">まずは、<br />体験から。</h2>
+        <p class="sub r d2 on">起業家・経営者の方を対象にご案内しております。</p>
+        <p class="book-note r d3 on">
           お申し込み後、2営業日以内に担当者よりご連絡いたします。<br />
           体験セッションは完全無料でご参加いただけます。
         </p>
       </div>
 
       <div>
-        <form class="form r" id="bform" novalidate>
+        <form class="form r on" id="bform" novalidate>
           <div class="fg">
             <label class="fl" for="f-name">お名前 <span class="frq">必須</span></label>
             <input type="text" id="f-name" class="fi" placeholder="山田 太郎" required />
