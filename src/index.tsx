@@ -319,6 +319,7 @@ function landingHTML(): string {
       border-bottom: 1px solid transparent;
       transition: background .4s, backdrop-filter .4s, border-color .4s;
     }
+    .nav-logo img { height: 28px; width: auto; display: block; }
     nav.s {
       background: rgba(5,5,5,.92);
       backdrop-filter: blur(16px);
