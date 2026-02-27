@@ -1229,7 +1229,7 @@ function landingHTML(): string {
       </div>
       <div class="feat-card r d3 on">
         <span class="feat-n">03</span>
-        <h3 class="feat-h">身体だけじゃない<em>60分</em></h3>
+        <h3 class="feat-h">身体だけじゃない、<em>心も変わる</em></h3>
         <p class="feat-p">身体だけ変わっても、心はついてこない。慶應義塾大学名誉教授監修のプログラムによって、心にもアプローチ。</p>
       </div>
       <div class="feat-card r d4 on">
