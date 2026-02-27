@@ -312,7 +312,7 @@ function landingHTML(): string {
     nav {
       position: fixed; inset: 0 0 auto; z-index: 300;
       display: grid;
-      grid-template-columns: 1fr auto 1fr;
+      grid-template-columns: auto 1fr auto;
       align-items: center;
       padding: 22px 48px;
       background: rgba(5,5,5,0);
@@ -329,6 +329,7 @@ function landingHTML(): string {
     .nav-links {
       display: flex; align-items: center; gap: 2px;
       justify-content: center;
+      width: 100%;
     }
     .nav-link {
       font-family: 'Inter', sans-serif;
@@ -343,33 +344,19 @@ function landingHTML(): string {
     }
     .nav-link:hover { color: #fff; background: rgba(255,255,255,.06); }
     .nav-link.active { color: #fff; }
-    .nav-right { display: flex; justify-content: flex-end; align-items: center; gap: 12px; }
-    .nav-logo {
-      display: inline-block;
-      line-height: 0;
-      text-decoration: none;
+    /* 体験予約リンクは常に緑ボタン風・右端に配置 */
+    .nav-link[data-section="booking"] {
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      margin-left: auto;
     }
-    .nav-logo img {
-      height: 32px;
-      width: auto;
-      display: block;
-      filter: brightness(1.05);
+    .nav-link[data-section="booking"]:hover {
+      background: rgba(0,224,90,.12);
+      color: var(--accent);
     }
-    .nav-btn {
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: .1em;
-      color: #050505;
-      background: var(--accent);
-      padding: 10px 22px;
-      border-radius: 8px;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: background .2s, box-shadow .2s;
-    }
-    .nav-btn:hover { background: #00c94f; box-shadow: 0 4px 20px rgba(0,224,90,.25); }
+    .nav-right { display: none; }
+    .nav-btn { display: none; }
     @media(max-width:768px){ nav{ padding: 18px 24px; } }
     @media(max-width:640px){ nav{ grid-template-columns: auto 1fr auto; gap: 4px; padding: 14px 12px; } }
 
@@ -410,20 +397,15 @@ function landingHTML(): string {
         letter-spacing: .04em;
       }
       .nav-link[data-section="booking"] {
-        color: var(--accent);
-        border: 1px solid var(--accent);
-        border-radius: 6px;
         padding: 5px 9px;
-      }
-      .nav-link[data-section="booking"]:hover {
-        background: rgba(0,224,90,.12);
+        margin-left: auto;
       }
       .nav-hamburger { display: none; }
       .nav-btn { display: none; }
     }
     @media(max-width:400px){
       .nav-link { font-size: 8px; padding: 4px 5px; }
-      .nav-link[data-section="booking"] { padding: 4px 7px; }
+      .nav-link[data-section="booking"] { padding: 4px 7px; margin-left: auto; }
     }
 
     /* モバイルメニュードロワー */
@@ -529,9 +511,9 @@ function landingHTML(): string {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 120px 64px 140px 48px;
+      padding: 80px 64px 120px 48px;
     }
-    @media(max-width:960px){ .hero-content{ padding: 110px 24px 80px; } }
+    @media(max-width:960px){ .hero-content{ padding: 70px 24px 70px; } }
 
     .hero-tag {
       display: inline-flex;
@@ -1195,11 +1177,11 @@ function landingHTML(): string {
     <a href="#solution" class="nav-link" data-section="solution">ソリューション</a>
     <a href="#origin" class="nav-link" data-section="origin">創業者</a>
     <a href="#supervisor" class="nav-link active" data-section="supervisor">監修</a>
+    <span style="flex:1;"></span>
     <a href="#booking" class="nav-link" data-section="booking">体験予約</a>
   </div>
 
   <div class="nav-right">
-    <a href="#booking" class="nav-btn">体験予約</a>
     <button class="nav-hamburger" id="nav-hamburger" aria-label="メニュー">
       <span></span><span></span><span></span>
     </button>
