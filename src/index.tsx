@@ -371,6 +371,7 @@ function landingHTML(): string {
     }
     .nav-btn:hover { background: #00c94f; box-shadow: 0 4px 20px rgba(0,224,90,.25); }
     @media(max-width:768px){ nav{ padding: 18px 24px; } }
+    @media(max-width:640px){ nav{ grid-template-columns: auto 1fr auto; gap: 4px; padding: 14px 12px; } }
 
     /* ハンバーガーボタン */
     .nav-hamburger {
@@ -399,9 +400,20 @@ function landingHTML(): string {
     .nav-hamburger.open span:nth-child(2) { opacity: 0; }
     .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
     @media(max-width:640px) {
-      .nav-links { display: none; }
-      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: flex;
+        gap: 0;
+      }
+      .nav-link {
+        font-size: 9px;
+        padding: 5px 7px;
+        letter-spacing: .04em;
+      }
+      .nav-hamburger { display: none; }
       .nav-btn { display: none; }
+    }
+    @media(max-width:400px){
+      .nav-link { font-size: 8px; padding: 4px 5px; }
     }
 
     /* モバイルメニュードロワー */
