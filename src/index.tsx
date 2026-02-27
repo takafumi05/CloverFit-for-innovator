@@ -1075,7 +1075,7 @@ function landingHTML(): string {
 <body>
 
 <!-- NAV -->
-<nav id="nav" data-scrolled="false" data-visible="true">
+<nav id="nav" data-scrolled="false" data-visible="true" data-init="true">
   <a href="#hero" class="nav-logo">
     <img src="/images/cloverfit-logo.png"
          alt="CloverFit"
@@ -1219,22 +1219,22 @@ function landingHTML(): string {
     <div class="feat-grid">
       <div class="feat-card r d1 on">
         <span class="feat-n">01</span>
-        <h3 class="feat-h"><em>60分</em>で、全部済む。</h3>
+        <h3 class="feat-h"><em>60分</em>で全部が揃う</h3>
         <p class="feat-p">トレーニング・メンタルケア・仲間作り。別々に通う時間はない。だから1つのセッションに凝縮。</p>
       </div>
       <div class="feat-card r d2 on">
         <span class="feat-n">02</span>
-        <h3 class="feat-h"><em>経営者だけ</em>の空間。</h3>
+        <h3 class="feat-h"><em>経営者だけ</em>の空間</h3>
         <p class="feat-p">同じ重圧を知る仲間同士だから、すぐに分かりあえる。ただの交流会より深いつながりが、ここにある。</p>
       </div>
       <div class="feat-card r d3 on">
         <span class="feat-n">03</span>
-        <h3 class="feat-h">体だけじゃない<em>60分</em>。</h3>
-        <p class="feat-p">24時間止まらない頭を、強制的にオフにする。身体を動かすことでしか得られない、完全なリセット。</p>
+        <h3 class="feat-h">身体だけじゃない<em>60分</em></h3>
+        <p class="feat-p">身体だけ変わっても、心はついてこない。慶應義塾大学名誉教授監修のプログラムによって、心にもアプローチ。</p>
       </div>
       <div class="feat-card r d4 on">
         <span class="feat-n">04</span>
-        <h3 class="feat-h"><em>忙しい毎日</em>からの解放。</h3>
+        <h3 class="feat-h"><em>忙しい毎日</em>からの解放</h3>
         <p class="feat-p">60分だけ、経営を忘れて自分の心と身体に向き合う。それが翌日のパフォーマンスを、決定的に変える。</p>
       </div>
     </div>
