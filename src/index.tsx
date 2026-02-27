@@ -694,12 +694,12 @@ function landingHTML(): string {
 
     .stat-n {
       font-family: 'Inter', sans-serif;
-      font-weight: 800;
-      font-size: clamp(40px, 4.5vw, 54px);
+      font-weight: 700;
+      font-size: clamp(48px, 5.5vw, 64px);
       line-height: 1; color: var(--accent);
-      letter-spacing: -.04em; flex-shrink: 0; min-width: 100px;
+      letter-spacing: -.04em; flex-shrink: 0; min-width: 110px;
     }
-    .stat-n span { font-size: .52em; letter-spacing: 0; vertical-align: super; }
+    .stat-n span { font-size: .85em; letter-spacing: -.02em; vertical-align: baseline; }
 
     .stat-divider {
       width: 1px; height: 40px; background: var(--border); flex-shrink: 0;
@@ -1285,7 +1285,7 @@ function landingHTML(): string {
           </div>
         </div>
         <div class="stat-row r d3 on">
-          <div class="stat-n">10<span style="font-size:.45em;letter-spacing:0;vertical-align:super">倍</span></div>
+          <div class="stat-n">10<span style="font-size:.85em;letter-spacing:-.02em;vertical-align:baseline">倍</span></div>
           <div class="stat-divider"></div>
           <div>
             <p class="stat-l">躁うつ病リスクが一般人より10倍高い</p>
