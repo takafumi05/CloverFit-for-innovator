@@ -409,11 +409,21 @@ function landingHTML(): string {
         padding: 5px 7px;
         letter-spacing: .04em;
       }
+      .nav-link[data-section="booking"] {
+        color: var(--accent);
+        border: 1px solid var(--accent);
+        border-radius: 6px;
+        padding: 5px 9px;
+      }
+      .nav-link[data-section="booking"]:hover {
+        background: rgba(0,224,90,.12);
+      }
       .nav-hamburger { display: none; }
       .nav-btn { display: none; }
     }
     @media(max-width:400px){
       .nav-link { font-size: 8px; padding: 4px 5px; }
+      .nav-link[data-section="booking"] { padding: 4px 7px; }
     }
 
     /* モバイルメニュードロワー */
