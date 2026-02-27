@@ -1203,7 +1203,7 @@ function landingHTML(): string {
       <span class="label r on">Solution</span>
       <h2 class="r d1 on">心も身体も<br />タフじゃなきゃ。</h2>
       <p class="sol-sub r d2 on">起業家のための<br />フィジカル × メンタルトレーニング。</p>
-      <p class="sub r d3 on"> for Innovatorは、60分で身体・心・仲間が揃う、<br />
+      <p class="sub r d3 on">        CloverFitでは、身体・心・仲間が60分で揃う、<br />
         起業家・経営者のための場所。
       </p>
     </div>
@@ -1328,7 +1328,7 @@ function landingHTML(): string {
       <div class="sup-section-left r on">
         <span class="label">Supervisor</span>
         <h2>このプログラムには<br />科学的根拠がある。</h2>
-        <p class="sub">Well-being研究の第一人者、前野隆司教授が監修。幸福学の知見をプログラムに組み込むことで、心理的効果を科学的に担保しています。</p>
+        <p class="sub">Well-being研究の第一人者、前野隆司教授が監修。心理学や幸福学の知見をプログラムに組み込むことで、心理的効果を科学的に担保しています。</p>
       </div>
       <div class="sup-card-wrap r d2 on">
         <div class="sup-card">
