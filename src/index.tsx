@@ -1260,7 +1260,7 @@ function landingHTML(): string {
 
       <div>
         <span class="label r on">Problem</span>
-        <h2 class="r d1 on">いる人ほど、<br />心は<em>壊れやすい</em>。
+        <h2 class="r d1 on">挑戦している人ほど、<br />心は<em>壊れやすい</em>。
         </h2>
         <p class="sub r d2 on">
           起業後の心理的ストレス、トレーニング時間の消滅、コミュニティの欠如。
