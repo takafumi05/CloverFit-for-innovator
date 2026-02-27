@@ -1126,15 +1126,15 @@ function landingHTML(): string {
     <div class="hero-pillars r d3 on">
       <div class="hero-pillar">
         <span class="hp-label">Body</span>
-        <span class="hp-text">いつまでも動ける身体をつくる機能的なトレーニング。トレーニング・メンタルケア・仲間作りを、1つのセッションに凝縮した。</span>
+        <span class="hp-text">いつまでも動ける身体をつくる機能的なトレーニング</span>
       </div>
       <div class="hero-pillar">
         <span class="hp-label">Mind</span>
-        <span class="hp-text">Well-being研究に基づく心理介入。24時間止まらない頭を、強制的にオフにする。身体を動かすことでしか得られない完全なリセット。</span>
+        <span class="hp-text">Well-being研究に基づく心理介入</span>
       </div>
       <div class="hero-pillar">
         <span class="hp-label">Community</span>
-        <span class="hp-text">同じ悩みを持つ起業家・経営者の特別な空間。同じ重圧を知る仲間同士だから、すぐに分かりあえる。</span>
+        <span class="hp-text">同じ悩みを持つ起業家・経営者の特別な空間</span>
       </div>
     </div>
 
