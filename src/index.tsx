@@ -1260,7 +1260,7 @@ function landingHTML(): string {
 
       <div>
         <span class="label r on">Problem</span>
-        <h2 class="r d1 on">挑戦している人ほど、<br />心は<em>壊れやすい</em>。
+        <h2 class="r d1 on">挑戦している人ほど<br />心は<em>壊れやすい</em>。
         </h2>
         <p class="sub r d2 on">
           起業後の心理的ストレス、トレーニング時間の消滅、コミュニティの欠如。
@@ -1354,7 +1354,7 @@ function landingHTML(): string {
     <div class="origin-top-grid">
       <div class="origin-top-left r on">
         <span class="label">Origin</span>
-        <h2>身体を鍛えるほど<br />心が壊れていった。</h2>
+        <h2>身体を鍛えるほど、<br />心が壊れていった。</h2>
         <p class="sub">高校時代からパーソナルトレーナーとして活動。慶應義塾大学でウエイトリフティング・ボディビルに打ち込む中で、身体だけを鍛え続けることの限界に気づいた。</p>
       </div>
       <div class="origin-top-right r d1 on">
