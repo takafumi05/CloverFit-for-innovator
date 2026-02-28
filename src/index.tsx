@@ -1178,8 +1178,8 @@ function landingHTML(): string {
   <div class="nav-links">
     <a href="#problem" class="nav-link" data-section="problem">課題</a>
     <a href="#solution" class="nav-link" data-section="solution">ソリューション</a>
-    <a href="#origin" class="nav-link" data-section="origin">創業者</a>
-    <a href="#supervisor" class="nav-link active" data-section="supervisor">監修</a>
+    <a href="#origin" class="nav-link active" data-section="origin">創業者</a>
+    <a href="#supervisor" class="nav-link" data-section="supervisor">監修</a>
     <span style="flex:1;"></span>
     <a href="#booking" class="nav-link" data-section="booking">体験予約</a>
   </div>
@@ -1195,7 +1195,7 @@ function landingHTML(): string {
 <div class="nav-drawer" id="nav-drawer">
   <a href="#problem" class="nav-drawer-link" data-section="problem">課題</a>
   <a href="#solution" class="nav-drawer-link" data-section="solution">ソリューション</a>
-  <a href="#origin" class="nav-drawer-link" data-section="origin">創業者</a>
+  <a href="#origin" class="nav-drawer-link active" data-section="origin">創業者</a>
   <a href="#supervisor" class="nav-drawer-link" data-section="supervisor">監修</a>
   <a href="#booking" class="nav-drawer-link" data-section="booking">体験予約</a>
   <a href="#booking" class="nav-drawer-cta">体験予約する</a>
@@ -1354,7 +1354,7 @@ function landingHTML(): string {
     <div class="origin-top-grid">
       <div class="origin-top-left r on">
         <span class="label">Origin</span>
-        <h2>身体を鍛えるほど、<br />心が壊れていった。</h2>
+        <h2>身体を鍛えるほど<br />心が壊れていった。</h2>
         <p class="sub">高校時代からパーソナルトレーナーとして活動。慶應義塾大学でウエイトリフティング・ボディビルに打ち込む中で、身体だけを鍛え続けることの限界に気づいた。</p>
       </div>
       <div class="origin-top-right r d1 on">
