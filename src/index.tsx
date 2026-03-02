@@ -351,7 +351,7 @@ function landingHTML(): string {
       color: var(--accent);
       border: 1px solid var(--accent);
       border-radius: 6px;
-      margin-left: auto;
+      margin-left: 12px;
     }
     .nav-link[data-section="booking"]:hover {
       background: rgba(0,224,90,.12);
@@ -363,6 +363,7 @@ function landingHTML(): string {
       display: flex; align-items: center;
       transition: color .2s;
       text-decoration: none;
+      margin-right: 4px;
     }
     .nav-ig:hover { color: #fff; }
     .nav-btn { display: none; }
@@ -408,7 +409,7 @@ function landingHTML(): string {
       }
       .nav-link[data-section="booking"] {
         padding: 5px 9px;
-        margin-left: auto;
+        margin-left: 12px;
       }
       .nav-hamburger { display: none; }
       .nav-btn { display: none; }
