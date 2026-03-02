@@ -357,7 +357,14 @@ function landingHTML(): string {
       background: rgba(0,224,90,.12);
       color: var(--accent);
     }
-    .nav-right { display: none; }
+    .nav-right { display: flex; align-items: center; gap: 12px; justify-content: flex-end; }
+    .nav-ig {
+      color: rgba(255,255,255,.45);
+      display: flex; align-items: center;
+      transition: color .2s;
+      text-decoration: none;
+    }
+    .nav-ig:hover { color: #fff; }
     .nav-btn { display: none; }
     @media(max-width:768px){ nav{ padding: 18px 24px; } }
     @media(max-width:640px){ nav{ grid-template-columns: auto 1fr auto; gap: 4px; padding: 14px 12px; } }
@@ -1152,10 +1159,12 @@ function landingHTML(): string {
     .foot-r { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
     @media(max-width:768px){ .foot-r{ align-items: flex-start; } }
     .foot-ig {
+      display: inline-flex; align-items: center; gap: 7px;
       font-family: 'Inter', sans-serif;
       font-size: 13px; font-weight: 400; color: var(--ts);
       text-decoration: none; letter-spacing: .03em; transition: color .2s;
     }
+    .foot-ig svg { width: 15px; height: 15px; flex-shrink: 0; }
     .foot-ig:hover { color: var(--tp); }
     .foot-copy {
       font-family: 'Inter', sans-serif; font-size: 11px; color: #333; letter-spacing: .04em;
@@ -1185,6 +1194,9 @@ function landingHTML(): string {
   </div>
 
   <div class="nav-right">
+    <a href="https://www.instagram.com/cloverfit2026/" target="_blank" rel="noopener" class="nav-ig" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>
+    </a>
     <button class="nav-hamburger" id="nav-hamburger" aria-label="メニュー">
       <span></span><span></span><span></span>
     </button>
@@ -1538,7 +1550,10 @@ function landingHTML(): string {
       <div class="foot-tag">ジムで身体は変わった。でも、心は？</div>
     </div>
     <div class="foot-r">
-      <a href="https://instagram.com/cloverfit_2026" target="_blank" rel="noopener" class="foot-ig">@cloverfit_2026</a>
+      <a href="https://www.instagram.com/cloverfit2026/" target="_blank" rel="noopener" class="foot-ig">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>
+        @cloverfit2026
+      </a>
       <span class="foot-copy">© 2026 CloverFit. All rights reserved.</span>
     </div>
   </div>
