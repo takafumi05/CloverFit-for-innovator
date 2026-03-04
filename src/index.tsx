@@ -2059,4 +2059,23 @@ function adminHTML(): string {
 </html>`
 }
 
+// sitemap.xml
+app.get('/sitemap.xml', (c) => {
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://clover-fit.com/</loc>
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>`
+  return c.text(sitemap, 200, { 'Content-Type': 'application/xml' })
+})
+
+// robots.txt
+app.get('/robots.txt', (c) => {
+  return c.text(`User-agent: *\nAllow: /\nSitemap: https://clover-fit.com/sitemap.xml`)
+})
+
 export default app
