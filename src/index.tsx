@@ -194,6 +194,7 @@ function landingHTML(): string {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="0LwmPnfdycsnv-4ZoPs4T-J6Cykugg-2k_hv1JD8jEY" />
   <title>CloverFit for Innovator — 起業家・経営者のための60分完結型プログラム</title>
   <meta name="description" content="起業家・経営者のためのフィジカル×メンタルトレーニング。60分で身体・心・仲間が揃う、クローズドコミュニティ。" />
   <meta property="og:title" content="CloverFit for Innovator" />
