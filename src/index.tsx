@@ -195,13 +195,53 @@ function landingHTML(): string {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="0LwmPnfdycsnv-4ZoPs4T-J6Cykugg-2k_hv1JD8jEY" />
-  <title>CloverFit for Innovator — 起業家・経営者のための60分完結型プログラム</title>
-  <meta name="description" content="起業家・経営者のためのフィジカル×メンタルトレーニング。60分で身体・心・仲間が揃う、クローズドコミュニティ。" />
-  <meta property="og:title" content="CloverFit for Innovator" />
-  <meta property="og:description" content="起業家・経営者のためのフィジカル×メンタルトレーニング。60分で身体・心・仲間が揃う。" />
+
+  <!-- SEO基本 -->
+  <title>CloverFit | 起業家・経営者のための60分フィジカル×メンタルトレーニング</title>
+  <meta name="description" content="起業家・経営者限定。身体・心・仲間が60分で揃うクローズドプログラム。慶應義塾大学名誉教授監修のWell-being研究に基づくメンタルケア×機能的トレーニング。まずは体験予約から。" />
+  <meta name="keywords" content="起業家 トレーニング, 経営者 メンタルヘルス, 起業家 フィットネス, 経営者 ジム, Well-being, メンタルケア, CloverFit, クローバーフィット" />
+  <link rel="canonical" href="https://clover-fit.com/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="CloverFit" />
+
+  <!-- OGP（SNSシェア用） -->
+  <meta property="og:title" content="CloverFit | 起業家・経営者のための60分フィジカル×メンタルトレーニング" />
+  <meta property="og:description" content="起業家・経営者限定。身体・心・仲間が60分で揃うクローズドプログラム。慶應義塾大学名誉教授監修。まずは体験予約から。" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="/images/training-bg.jpg" />
+  <meta property="og:url" content="https://clover-fit.com/" />
+  <meta property="og:image" content="https://clover-fit.com/images/training-bg.jpg" />
+  <meta property="og:site_name" content="CloverFit" />
+  <meta property="og:locale" content="ja_JP" />
+
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CloverFit | 起業家・経営者のための60分フィジカル×メンタルトレーニング" />
+  <meta name="twitter:description" content="起業家・経営者限定。身体・心・仲間が60分で揃うクローズドプログラム。慶應義塾大学名誉教授監修。" />
+  <meta name="twitter:image" content="https://clover-fit.com/images/training-bg.jpg" />
+
+  <!-- 構造化データ（JSON-LD） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "CloverFit",
+    "description": "起業家・経営者のための60分フィジカル×メンタルトレーニングプログラム",
+    "url": "https://clover-fit.com",
+    "logo": "https://clover-fit.com/images/cloverfit-logo.png",
+    "image": "https://clover-fit.com/images/training-bg.jpg",
+    "sameAs": ["https://www.instagram.com/cloverfit2026/"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "JP"
+    },
+    "offers": {
+      "@type": "Offer",
+      "name": "体験予約",
+      "url": "https://clover-fit.com/#booking"
+    }
+  }
+  </script>
+
   <link rel="icon" href="/images/cloverfit-logo.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
