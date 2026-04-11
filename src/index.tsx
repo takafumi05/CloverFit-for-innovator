@@ -1264,14 +1264,14 @@ function landingHTML(): string {
 
   <div class="nav-links">
     <a href="#problem" class="nav-link" data-section="problem">課題</a>
-    <a href="#solution" class="nav-link active" data-section="solution">ソリューション</a>
+    <a href="#solution" class="nav-link" data-section="solution">ソリューション</a>
     <a href="#origin" class="nav-link" data-section="origin">創業者</a>
     <a href="#supervisor" class="nav-link" data-section="supervisor">監修</a>
     <span style="flex:1;"></span>
     <a href="https://www.instagram.com/cloverfit2026/" target="_blank" rel="noopener" class="nav-ig" aria-label="Instagram">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>
     </a>
-    <a href="https://s.lmes.jp/landing-qr/2009477605-NXOfJLH0?uLand=n4pPW4" target="_blank" rel="noopener" class="nav-link" data-section="booking">体験予約</a>
+    <a href="https://s.lmes.jp/landing-qr/2009477605-NXOfJLH0?uLand=n4pPW4" target="_blank" rel="noopener" class="nav-link active" data-section="booking">体験予約</a>
   </div>
 
   <div class="nav-right">
@@ -1287,10 +1287,10 @@ function landingHTML(): string {
 <!-- モバイルドロワーメニュー -->
 <div class="nav-drawer" id="nav-drawer">
   <a href="#problem" class="nav-drawer-link" data-section="problem">課題</a>
-  <a href="#solution" class="nav-drawer-link active" data-section="solution">ソリューション</a>
+  <a href="#solution" class="nav-drawer-link" data-section="solution">ソリューション</a>
   <a href="#origin" class="nav-drawer-link" data-section="origin">創業者</a>
   <a href="#supervisor" class="nav-drawer-link" data-section="supervisor">監修</a>
-  <a href="https://s.lmes.jp/landing-qr/2009477605-NXOfJLH0?uLand=n4pPW4" target="_blank" rel="noopener" class="nav-drawer-link" data-section="booking">体験予約</a>
+  <a href="https://s.lmes.jp/landing-qr/2009477605-NXOfJLH0?uLand=n4pPW4" target="_blank" rel="noopener" class="nav-drawer-link active" data-section="booking">体験予約</a>
   <a href="https://s.lmes.jp/landing-qr/2009477605-NXOfJLH0?uLand=n4pPW4" target="_blank" rel="noopener" class="nav-drawer-cta">体験予約する</a>
 </div>
 
@@ -1416,7 +1416,7 @@ function landingHTML(): string {
       <div class="feat-card r d1 on">
         <span class="feat-n">01</span>
         <h3 class="feat-h"><em>60分</em>で全部が揃う</h3>
-        <p class="feat-p">トレーニング・メンタルケア・仲間作り。別々に通う時間はない。だから1つのセッションに凝縮。</p>
+        <p class="feat-p">トレーニング・メンタルケア・仲間作り、別々に通う時間はない。だから1つのセッションに凝縮。</p>
       </div>
       <div class="feat-card r d2 on">
         <span class="feat-n">02</span>
@@ -1431,7 +1431,7 @@ function landingHTML(): string {
       <div class="feat-card r d4 on">
         <span class="feat-n">04</span>
         <h3 class="feat-h"><em>自分に投資</em>する時間</h3>
-        <p class="feat-p">60分だけ自分の心と身体に向き合う。それが日々のパフォーマンスを決定的に変える。</p>
+        <p class="feat-p">60分だけ、自分の心と身体に向き合う。それが日々のパフォーマンスを決定的に変える。</p>
       </div>
     </div>
 
@@ -1562,10 +1562,7 @@ function landingHTML(): string {
         <span class="label r on">Contact</span>
         <h2 class="r d1 on">まずは、<br />体験から。</h2>
         <p class="sub r d2 on">起業家・経営者の方を対象にご案内しております。</p>
-        <p class="book-note r d3 on">
-          お申し込み後、2営業日以内に担当者よりご連絡いたします。<br />
-          体験セッションは完全無料でご参加いただけます。
-        </p>
+
       </div>
 
       <div class="line-contact r d2 on">
