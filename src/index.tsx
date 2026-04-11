@@ -1395,8 +1395,8 @@ function landingHTML(): string {
       </div>
       <div class="feat-card r d4 on">
         <span class="feat-n">04</span>
-        <h3 class="feat-h"><em>忙しい毎日</em>からの解放</h3>
-        <p class="feat-p">60分だけ、経営を忘れて自分の心と身体に向き合う。それが翌日のパフォーマンスを、決定的に変える。</p>
+        <h3 class="feat-h">週1回、<em>自分に投資</em>する時間</h3>
+        <p class="feat-p">週1回60分だけ自分に向き合う。それが翌週のパフォーマンスを決定的に変える。</p>
       </div>
     </div>
 
