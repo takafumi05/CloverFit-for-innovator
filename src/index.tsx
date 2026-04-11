@@ -1099,6 +1099,41 @@ function landingHTML(): string {
       border-top: 1px solid var(--border);
     }
 
+    /* LINE contact */
+    .line-contact {
+      display: flex; flex-direction: column; align-items: flex-start; gap: 40px;
+      padding-top: 8px;
+    }
+    .line-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: #06C755; color: #fff;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 700; font-size: 16px;
+      text-decoration: none;
+      padding: 18px 36px; border-radius: 12px;
+      transition: background .2s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(6,199,85,.3);
+    }
+    .line-btn:hover { background: #05b34c; box-shadow: 0 8px 28px rgba(6,199,85,.4); }
+    .line-qr-wrap {
+      display: flex; align-items: center; gap: 24px;
+    }
+    .line-qr-img {
+      width: 140px; height: 140px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #fff; padding: 8px;
+    }
+    .line-qr-note {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300; font-size: 13px;
+      color: var(--ts); line-height: 2;
+    }
+    @media(max-width:768px){
+      .line-btn { font-size: 14px; padding: 16px 24px; }
+      .line-qr-img { width: 110px; height: 110px; }
+    }
+
     .form { display: flex; flex-direction: column; gap: 22px; }
     .fg { display: flex; flex-direction: column; gap: 9px; }
 
@@ -1236,7 +1271,7 @@ function landingHTML(): string {
     <a href="https://www.instagram.com/cloverfit2026/" target="_blank" rel="noopener" class="nav-ig" aria-label="Instagram">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>
     </a>
-    <a href="#booking" class="nav-link" data-section="booking">体験予約</a>
+    <a href="https://s.lmes.jp/landing-qr/2009477605-NXOfJLH0?uLand=n4pPW4" target="_blank" rel="noopener" class="nav-link" data-section="booking">体験予約</a>
   </div>
 
   <div class="nav-right">
@@ -1255,8 +1290,8 @@ function landingHTML(): string {
   <a href="#solution" class="nav-drawer-link active" data-section="solution">ソリューション</a>
   <a href="#origin" class="nav-drawer-link" data-section="origin">創業者</a>
   <a href="#supervisor" class="nav-drawer-link" data-section="supervisor">監修</a>
-  <a href="#booking" class="nav-drawer-link" data-section="booking">体験予約</a>
-  <a href="#booking" class="nav-drawer-cta">体験予約する</a>
+  <a href="https://s.lmes.jp/landing-qr/2009477605-NXOfJLH0?uLand=n4pPW4" target="_blank" rel="noopener" class="nav-drawer-link" data-section="booking">体験予約</a>
+  <a href="https://s.lmes.jp/landing-qr/2009477605-NXOfJLH0?uLand=n4pPW4" target="_blank" rel="noopener" class="nav-drawer-cta">体験予約する</a>
 </div>
 
 
@@ -1301,7 +1336,7 @@ function landingHTML(): string {
     </div>
 
     <div class="hero-cta-row r d4 on">
-      <a href="#booking" class="hero-cta">体験予約する</a>
+      <a href="https://s.lmes.jp/landing-qr/2009477605-NXOfJLH0?uLand=n4pPW4" target="_blank" rel="noopener" class="hero-cta">体験予約する</a>
       <span class="hero-cta-note">起業家・経営者限定</span>
     </div>
   </div>
@@ -1533,52 +1568,14 @@ function landingHTML(): string {
         </p>
       </div>
 
-      <div>
-        <form class="form r on" id="bform" novalidate>
-          <div class="fg">
-            <label class="fl" for="f-name">お名前 <span class="frq">必須</span></label>
-            <input type="text" id="f-name" class="fi" placeholder="山田 太郎" required />
-          </div>
-          <div class="fg">
-            <label class="fl" for="f-email">メールアドレス <span class="frq">必須</span></label>
-            <input type="email" id="f-email" class="fi" placeholder="taro@example.com" required />
-          </div>
-          <div class="fg">
-            <label class="fl" for="f-phone">電話番号</label>
-            <input type="tel" id="f-phone" class="fi" placeholder="090-0000-0000" />
-          </div>
-          <div class="fg">
-            <label class="fl" for="f-pos">あなたの立場 <span class="frq">必須</span></label>
-            <select id="f-pos" class="fs" required>
-              <option value="" disabled selected>選択してください</option>
-              <option value="founder">起業家・創業者</option>
-              <option value="ceo">経営者・代表取締役</option>
-              <option value="exec">役員・CxO</option>
-              <option value="sole">個人事業主</option>
-              <option value="other">その他</option>
-            </select>
-          </div>
-          <div class="fg">
-            <label class="fl" for="f-co">事業内容・会社名</label>
-            <input type="text" id="f-co" class="fi" placeholder="株式会社〇〇 / SaaS事業" />
-          </div>
-          <div class="fg">
-            <label class="fl" for="f-msg">CloverFitに期待すること</label>
-            <textarea id="f-msg" class="ft" placeholder="身体を整えたい、孤独感を解消したい、仕事の仲間を作りたい…など、お気軽にお書きください。"></textarea>
-          </div>
-          <button type="submit" class="f-submit" id="f-submit-btn">体験予約する</button>
-        </form>
-
-        <div class="thanks" id="thanks">
-          <div class="thanks-ic">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
-                 fill="none" stroke="var(--accent)" stroke-width="1.8"
-                 stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-          </div>
-          <h3 class="thanks-h">お申し込みありがとうございます。</h3>
-          <p class="thanks-p">2営業日以内にご連絡いたします。<br />今しばらくお待ちください。</p>
+      <div class="line-contact r d2 on">
+        <a href="https://s.lmes.jp/landing-qr/2009477605-NXOfJLH0?uLand=n4pPW4" target="_blank" rel="noopener" class="line-btn">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          公式LINEで体験予約する
+        </a>
+        <div class="line-qr-wrap">
+          <img src="/images/line-qr.png" alt="CloverFit 公式LINE QRコード" class="line-qr-img" />
+          <p class="line-qr-note">QRコードを読み取って<br />友だち追加してください</p>
         </div>
       </div>
 
