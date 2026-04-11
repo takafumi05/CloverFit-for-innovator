@@ -1229,14 +1229,14 @@ function landingHTML(): string {
 
   <div class="nav-links">
     <a href="#problem" class="nav-link" data-section="problem">課題</a>
-    <a href="#solution" class="nav-link" data-section="solution">ソリューション</a>
+    <a href="#solution" class="nav-link active" data-section="solution">ソリューション</a>
     <a href="#origin" class="nav-link" data-section="origin">創業者</a>
     <a href="#supervisor" class="nav-link" data-section="supervisor">監修</a>
     <span style="flex:1;"></span>
     <a href="https://www.instagram.com/cloverfit2026/" target="_blank" rel="noopener" class="nav-ig" aria-label="Instagram">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>
     </a>
-    <a href="#booking" class="nav-link active" data-section="booking">体験予約</a>
+    <a href="#booking" class="nav-link" data-section="booking">体験予約</a>
   </div>
 
   <div class="nav-right">
@@ -1252,10 +1252,10 @@ function landingHTML(): string {
 <!-- モバイルドロワーメニュー -->
 <div class="nav-drawer" id="nav-drawer">
   <a href="#problem" class="nav-drawer-link" data-section="problem">課題</a>
-  <a href="#solution" class="nav-drawer-link" data-section="solution">ソリューション</a>
+  <a href="#solution" class="nav-drawer-link active" data-section="solution">ソリューション</a>
   <a href="#origin" class="nav-drawer-link" data-section="origin">創業者</a>
   <a href="#supervisor" class="nav-drawer-link" data-section="supervisor">監修</a>
-  <a href="#booking" class="nav-drawer-link active" data-section="booking">体験予約</a>
+  <a href="#booking" class="nav-drawer-link" data-section="booking">体験予約</a>
   <a href="#booking" class="nav-drawer-cta">体験予約する</a>
 </div>
 
