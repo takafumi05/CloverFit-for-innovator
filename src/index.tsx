@@ -1296,7 +1296,7 @@ function landingHTML(): string {
       </div>
       <div class="hero-pillar">
         <span class="hp-label">Community</span>
-        <span class="hp-text">同じ重圧を知る仲間と、本音で話せる特別な空間</span>
+        <span class="hp-text">経営者の仲間と本音で話せる特別な空間</span>
       </div>
     </div>
 
