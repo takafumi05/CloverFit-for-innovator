@@ -1230,13 +1230,13 @@ function landingHTML(): string {
   <div class="nav-links">
     <a href="#problem" class="nav-link" data-section="problem">課題</a>
     <a href="#solution" class="nav-link" data-section="solution">ソリューション</a>
-    <a href="#origin" class="nav-link active" data-section="origin">創業者</a>
+    <a href="#origin" class="nav-link" data-section="origin">創業者</a>
     <a href="#supervisor" class="nav-link" data-section="supervisor">監修</a>
     <span style="flex:1;"></span>
     <a href="https://www.instagram.com/cloverfit2026/" target="_blank" rel="noopener" class="nav-ig" aria-label="Instagram">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>
     </a>
-    <a href="#booking" class="nav-link" data-section="booking">体験予約</a>
+    <a href="#booking" class="nav-link active" data-section="booking">体験予約</a>
   </div>
 
   <div class="nav-right">
@@ -1253,9 +1253,9 @@ function landingHTML(): string {
 <div class="nav-drawer" id="nav-drawer">
   <a href="#problem" class="nav-drawer-link" data-section="problem">課題</a>
   <a href="#solution" class="nav-drawer-link" data-section="solution">ソリューション</a>
-  <a href="#origin" class="nav-drawer-link active" data-section="origin">創業者</a>
+  <a href="#origin" class="nav-drawer-link" data-section="origin">創業者</a>
   <a href="#supervisor" class="nav-drawer-link" data-section="supervisor">監修</a>
-  <a href="#booking" class="nav-drawer-link" data-section="booking">体験予約</a>
+  <a href="#booking" class="nav-drawer-link active" data-section="booking">体験予約</a>
   <a href="#booking" class="nav-drawer-cta">体験予約する</a>
 </div>
 
@@ -1330,7 +1330,7 @@ function landingHTML(): string {
           <div class="stat-n">87<span>%</span></div>
           <div class="stat-divider"></div>
           <div>
-            <p class="stat-l">の起業家がメンタルヘルス問題を抱えている</p>
+            <p class="stat-l">の起業家がメンタルヘルスに問題を抱えている</p>
             <span class="stat-src">Founder Reports, 2026</span>
           </div>
         </div>
@@ -1338,7 +1338,7 @@ function landingHTML(): string {
           <div class="stat-n">49<span>%</span></div>
           <div class="stat-divider"></div>
           <div>
-            <p class="stat-l">の起業家が、精神疾患を経験している</p>
+            <p class="stat-l">の起業家が精神疾患を経験している</p>
             <span class="stat-src">Freeman et al., 2015</span>
           </div>
         </div>
@@ -1364,8 +1364,7 @@ function landingHTML(): string {
     <div class="sol-hd">
       <span class="label r on">Solution</span>
       <h2 class="r d1 on">心も身体も<br />タフじゃなきゃ。</h2>
-      <p class="sol-sub r d2 on">起業家のための<br />フィジカル × メンタルトレーニング。</p>
-      <p class="sub r d3 on">        CloverFitでは、身体・心・仲間が60分で揃う、<br />
+      <p class="sub r d2 on">CloverFitでは、身体・心・仲間が60分で揃う、<br />
         起業家・経営者のための場所。
       </p>
     </div>
