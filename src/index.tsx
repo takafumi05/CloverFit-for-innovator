@@ -1288,15 +1288,15 @@ function landingHTML(): string {
     <div class="hero-pillars r d3 on">
       <div class="hero-pillar">
         <span class="hp-label">Body</span>
-        <span class="hp-text">いつまでも動ける身体をつくる機能的なトレーニング</span>
+        <span class="hp-text">動ける身体をつくる機能的トレーニング</span>
       </div>
       <div class="hero-pillar">
         <span class="hp-label">Mind</span>
-        <span class="hp-text">Well-being研究に基づく心理介入</span>
+        <span class="hp-text">心拍データからメンタルヘルスを可視化</span>
       </div>
       <div class="hero-pillar">
         <span class="hp-label">Community</span>
-        <span class="hp-text">同じ悩みを持つ起業家・経営者の特別な空間</span>
+        <span class="hp-text">同じ重圧を知る仲間と、本音で話せる特別な空間</span>
       </div>
     </div>
 
