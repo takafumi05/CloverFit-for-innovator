@@ -592,14 +592,6 @@ function landingHTML(): string {
       border-radius: 100px;
       padding: 8px 18px;
     }
-    .hero-supervised-icon {
-      width: 20px; height: 20px;
-      background: var(--accent);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .hero-supervised-icon svg { display: block; }
     .hero-supervised-text {
       font-family: 'Noto Sans JP', sans-serif;
       font-size: 12px; font-weight: 500;
@@ -1403,12 +1395,7 @@ function landingHTML(): string {
     </div>
 
     <div class="hero-supervised r on">
-      <span class="hero-supervised-icon">
-        <svg viewBox="0 0 16 16" width="11" height="11" fill="none">
-          <path d="M8 1l1.8 3.6L14 5.5l-3 2.9.7 4.1L8 10.4l-3.7 2.1.7-4.1L2 5.5l4.2-.9L8 1z" fill="#050505"/>
-        </svg>
-      </span>
-      <span class="hero-supervised-text"><em>慶應義塾大学名誉教授</em>監修プログラム</span>
+      <span class="hero-supervised-text"><em>慶應義塾大学 前野隆司名誉教授</em>監修プログラム</span>
     </div>
 
     <h1 class="r d1 on">
