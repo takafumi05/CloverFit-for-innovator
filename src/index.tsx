@@ -564,9 +564,9 @@ function landingHTML(): string {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 80px 64px 120px 48px;
+      padding: 56px 64px 120px 48px;
     }
-    @media(max-width:960px){ .hero-content{ padding: 70px 24px 70px; } }
+    @media(max-width:960px){ .hero-content{ padding: 48px 24px 70px; } }
 
     .hero-tag {
       display: inline-flex;
