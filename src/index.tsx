@@ -584,6 +584,32 @@ function landingHTML(): string {
       width: 3px; height: 3px;
       border-radius: 50%; background: #2a2a2a; flex-shrink: 0;
     }
+    .hero-supervised {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-bottom: 28px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 100px;
+      padding: 8px 18px;
+    }
+    .hero-supervised-icon {
+      width: 20px; height: 20px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .hero-supervised-icon svg { display: block; }
+    .hero-supervised-text {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 12px; font-weight: 500;
+      color: rgba(232,232,232,.85);
+      letter-spacing: .04em;
+    }
+    .hero-supervised-text em {
+      font-style: normal;
+      color: #fff; font-weight: 700;
+    }
     .hero-tag-sub {
       font-family: 'Inter', sans-serif;
       font-size: 10px; font-weight: 400;
@@ -1215,6 +1241,70 @@ function landingHTML(): string {
     }
 
     /* =============================================
+       CONTACT
+    ============================================= */
+    #contact { border-top: 1px solid var(--border); padding: 120px 0; }
+    .contact-inner {
+      max-width: 680px; margin: 0 auto; padding: 0 48px;
+    }
+    @media(max-width:768px){ .contact-inner{ padding: 0 24px; } }
+    .contact-form {
+      display: flex; flex-direction: column; gap: 20px;
+      margin-top: 48px;
+    }
+    .cf-row { display: flex; gap: 16px; }
+    @media(max-width:600px){ .cf-row{ flex-direction: column; } }
+    .cf-field {
+      display: flex; flex-direction: column; gap: 8px; flex: 1;
+    }
+    .cf-label {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 12px; font-weight: 500;
+      color: var(--ts); letter-spacing: .06em;
+    }
+    .cf-label span { color: var(--accent); margin-left: 4px; }
+    .cf-input, .cf-textarea {
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--tp);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 14px; padding: 14px 16px;
+      outline: none;
+      transition: border-color .2s;
+      width: 100%; box-sizing: border-box;
+    }
+    .cf-input:focus, .cf-textarea:focus {
+      border-color: var(--accent);
+    }
+    .cf-textarea { min-height: 140px; resize: vertical; }
+    .cf-submit {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 10px;
+      background: var(--accent); color: #050505;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 700; font-size: 15px;
+      padding: 16px 40px; border-radius: 10px;
+      border: none; cursor: pointer;
+      transition: background .2s, box-shadow .2s;
+      align-self: flex-start;
+    }
+    .cf-submit:hover { background: #00c94f; box-shadow: 0 6px 24px rgba(0,224,90,.25); }
+    .cf-submit:disabled { opacity: .5; cursor: not-allowed; }
+    .cf-thanks {
+      display: none;
+      background: rgba(0,200,80,.08);
+      border: 1px solid rgba(0,200,80,.2);
+      border-radius: 12px; padding: 28px 32px;
+      text-align: center; margin-top: 16px;
+    }
+    .cf-thanks p {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 15px; color: var(--tp); line-height: 2;
+    }
+    .cf-thanks .cf-thanks-icon { font-size: 32px; margin-bottom: 12px; }
+
+    /* =============================================
        FOOTER
     ============================================= */
     footer { border-top: 1px solid var(--border); padding: 80px 0; }
@@ -1310,6 +1400,15 @@ function landingHTML(): string {
   <div class="hero-content">
     <div class="hero-tag r on">
       <span class="hero-tag-label">CloverFit for Innovator</span>
+    </div>
+
+    <div class="hero-supervised r on">
+      <span class="hero-supervised-icon">
+        <svg viewBox="0 0 16 16" width="11" height="11" fill="none">
+          <path d="M8 1l1.8 3.6L14 5.5l-3 2.9.7 4.1L8 10.4l-3.7 2.1.7-4.1L2 5.5l4.2-.9L8 1z" fill="#050505"/>
+        </svg>
+      </span>
+      <span class="hero-supervised-text"><em>慶應義塾大学名誉教授</em>監修プログラム</span>
     </div>
 
     <h1 class="r d1 on">
@@ -1585,6 +1684,46 @@ function landingHTML(): string {
 </section>
 
 
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <span class="label r on">Contact</span>
+    <h2 class="r d1 on">お問い合わせ</h2>
+    <p class="sub r d2 on">ご質問・ご相談はこちらからお気軽にどうぞ。</p>
+
+    <form class="contact-form r d3 on" id="contact-form" novalidate>
+      <div class="cf-row">
+        <div class="cf-field">
+          <label class="cf-label" for="cf-name">お名前<span>*</span></label>
+          <input class="cf-input" id="cf-name" type="text" placeholder="山田 太郎" required />
+        </div>
+        <div class="cf-field">
+          <label class="cf-label" for="cf-email">メールアドレス<span>*</span></label>
+          <input class="cf-input" id="cf-email" type="email" placeholder="example@mail.com" required />
+        </div>
+      </div>
+      <div class="cf-field">
+        <label class="cf-label" for="cf-subject">件名</label>
+        <input class="cf-input" id="cf-subject" type="text" placeholder="お問い合わせの件名" />
+      </div>
+      <div class="cf-field">
+        <label class="cf-label" for="cf-message">メッセージ<span>*</span></label>
+        <textarea class="cf-textarea" id="cf-message" placeholder="お問い合わせ内容をご記入ください。" required></textarea>
+      </div>
+      <button class="cf-submit" id="cf-submit" type="submit">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        送信する
+      </button>
+    </form>
+
+    <div class="cf-thanks" id="cf-thanks">
+      <div class="cf-thanks-icon">✉️</div>
+      <p>お問い合わせありがとうございます。<br />内容を確認のうえ、担当者よりご連絡いたします。</p>
+    </div>
+  </div>
+</section>
+
+
 <!-- FOOTER -->
 <footer>
   <div class="foot-inner">
@@ -1630,7 +1769,7 @@ function landingHTML(): string {
   const nav = document.getElementById('nav');
   const navLinks = document.querySelectorAll('.nav-link[data-section]');
   const drawerLinks = document.querySelectorAll('.nav-drawer-link[data-section]');
-  const sections = ['problem','solution','origin','supervisor','booking'].map(id => document.getElementById(id));
+  const sections = ['problem','solution','origin','supervisor','booking','contact'].map(id => document.getElementById(id));
 
   window.addEventListener('scroll', () => {
     nav.classList.toggle('s', window.scrollY > 60);
@@ -1753,6 +1892,49 @@ function landingHTML(): string {
       alert(err.message || '送信に失敗しました。再度お試しください。');
       submitBtn.disabled = false;
       submitBtn.textContent = '体験予約する';
+    }
+  });
+
+  /* お問い合わせフォーム */
+  const contactForm   = document.getElementById('contact-form');
+  const contactThanks = document.getElementById('cf-thanks');
+  const cfSubmit      = document.getElementById('cf-submit');
+
+  contactForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    const cfName    = document.getElementById('cf-name');
+    const cfEmail   = document.getElementById('cf-email');
+    const cfMessage = document.getElementById('cf-message');
+
+    let valid = true;
+    [cfName, cfEmail, cfMessage].forEach(el => {
+      el.style.borderColor = '';
+      if (!el.value.trim()) {
+        el.style.borderColor = '#e05';
+        valid = false;
+        el.addEventListener('input', () => { el.style.borderColor = ''; }, { once: true });
+      }
+    });
+    if (!valid) return;
+
+    cfSubmit.disabled = true;
+    cfSubmit.textContent = '送信中...';
+
+    try {
+      await emailjs.send('service_dpaxz7o', 'template_vy1oi7d', {
+        name:     cfName.value.trim(),
+        email:    cfEmail.value.trim(),
+        phone:    'なし',
+        position: document.getElementById('cf-subject').value.trim() || 'お問い合わせ',
+        company:  'なし',
+        message:  cfMessage.value.trim()
+      });
+      contactForm.style.display = 'none';
+      contactThanks.style.display = 'block';
+    } catch (err) {
+      alert('送信に失敗しました。再度お試しください。');
+      cfSubmit.disabled = false;
+      cfSubmit.textContent = '送信する';
     }
   });
 </script>
