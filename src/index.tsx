@@ -1852,7 +1852,7 @@ function landingHTML(): string {
 
       // EmailJSでメール通知（ブラウザから直接送信）
       try {
-        await emailjs.send('service_dpaxz70', 'template_vy1oi7d', {
+        await emailjs.send('service_dpaxz7o', 'template_vy1oi7d', {
           name:     name.value.trim(),
           email:    email.value.trim(),
           phone:    document.getElementById('f-phone').value.trim() || 'なし',
