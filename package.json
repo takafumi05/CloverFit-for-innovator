@@ -1,25 +1,33 @@
 {
   "name": "cloverfit-innovator",
+  "version": "1.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "dev:sandbox": "wrangler pages dev dist --d1=DB --local --ip 0.0.0.0 --port 3000",
-    "build": "vite build",
-    "preview": "wrangler pages dev dist",
-    "deploy": "npm run build && wrangler pages deploy dist --project-name cloverfit-innovator",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "db:migrate:local": "wrangler d1 migrations apply cloverfit-production --local",
-    "db:seed": "wrangler d1 execute cloverfit-production --local --command=\"SELECT 1\"",
-    "cf-typegen": "wrangler types --env-interface CloudflareBindings"
+    "db:migrate": "wrangler d1 migrations apply cloverfit-production --remote"
   },
   "dependencies": {
-    "@emailjs/nodejs": "^5.0.2",
-    "@hono/node-server": "^1.19.9",
-    "hono": "^4.12.2"
+    "@emailjs/browser": "^4",
+    "@opennextjs/cloudflare": "^1",
+    "next": "^15",
+    "react": "^19",
+    "react-dom": "^19"
   },
   "devDependencies": {
-    "@hono/vite-build": "^1.2.0",
-    "@hono/vite-dev-server": "^0.18.2",
-    "vite": "^6.3.5",
-    "wrangler": "^4.4.0"
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "wrangler": "^4"
   }
 }

@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+/* =============================================
+   DESIGN TOKENS（現行LPの CSS 変数を Tailwind トークン化）
+   → text-accent / bg-card / border-border / font-inter などのユーティリティを生成
+============================================= */
+@theme {
+  --color-bg: #050505;
+  --color-card: #0f0f0f;
+  --color-border: #1a1a1a;
+  --color-tp: #e8e8e8;
+  --color-ts: #666666;
+  --color-accent: #00e05a;
+
+  /* next/font が定義する --ff-inter / --ff-noto を参照（トークン名の衝突を避ける） */
+  --font-sans: var(--ff-noto), sans-serif;
+  --font-inter: var(--ff-inter), sans-serif;
+}
+
+/* =============================================
+   BASE
+============================================= */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background: var(--color-bg);
+    color: var(--color-tp);
+    font-family: var(--ff-noto), sans-serif;
+    font-weight: 300;
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+}
+
+/* =============================================
+   SCROLL REVEAL（現行 .r / .on / .d1..d4 を踏襲）
+   スマホ(<=768px)は即時表示
+============================================= */
+.r {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+}
+.r.on {
+  opacity: 1;
+  transform: none;
+}
+.d1 {
+  transition-delay: 0.1s;
+}
+.d2 {
+  transition-delay: 0.2s;
+}
+.d3 {
+  transition-delay: 0.3s;
+}
+.d4 {
+  transition-delay: 0.4s;
+}
+@media (max-width: 768px) {
+  .r {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

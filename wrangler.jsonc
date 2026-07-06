@@ -1,9 +1,19 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "cloverfit-innovator",
+  "main": ".open-next/worker.js",
   "compatibility_date": "2026-02-26",
-  "pages_build_output_dir": "./dist",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "cloverfit-innovator"
+    }
+  ],
   "d1_databases": [
     {
       "binding": "DB",

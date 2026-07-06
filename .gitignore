@@ -1,6 +1,18 @@
 node_modules/
-dist/
+
+# Next.js
+.next/
+next-env.d.ts
+
+# OpenNext / Cloudflare
+.open-next/
 .wrangler/
+dist/
+
+# env / secrets
 .dev.vars
+.env*.local
+
+# misc
 *.log
 *.backup
