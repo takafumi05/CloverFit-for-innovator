@@ -1,24 +1,54 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "cloverfit-innovator",
-  "main": ".open-next/worker.js",
-  "compatibility_date": "2026-02-26",
-  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
-  "assets": {
-    "directory": ".open-next/assets",
-    "binding": "ASSETS"
-  },
-  "services": [
-    {
-      "binding": "WORKER_SELF_REFERENCE",
-      "service": "cloverfit-innovator"
-    }
-  ],
-  "d1_databases": [
-    {
-      "binding": "DB",
-      "database_name": "cloverfit-production",
-      "database_id": "e5de3cf0-f184-4913-843c-4634ed4f0ba3"
-    }
-  ]
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "cloverfit-innovator",
+	"main": ".open-next/worker.js",
+	"compatibility_date": "2026-02-26",
+	"compatibility_flags": [
+		"nodejs_compat",
+		"global_fetch_strictly_public"
+	],
+	"assets": {
+		"directory": ".open-next/assets",
+		"binding": "ASSETS"
+	},
+	"services": [
+		{
+			"binding": "WORKER_SELF_REFERENCE",
+			"service": "cloverfit-innovator"
+		}
+	],
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "cloverfit-production",
+			"database_id": "e5de3cf0-f184-4913-843c-4634ed4f0ba3"
+		}
+	],
+	// ===== ステージング環境（独立Worker + 専用D1）=====
+	// デプロイ: npm run deploy:staging
+	//   → https://cloverfit-innovator-staging.<あなたのsubdomain>.workers.dev
+	// 注意: assets / services / d1_databases は環境ごとに再掲が必要（継承されない）。
+	//       WORKER_SELF_REFERENCE は staging の Worker 名を指すこと。
+	"env": {
+		"staging": {
+			"name": "cloverfit-innovator-staging",
+			"assets": {
+				"directory": ".open-next/assets",
+				"binding": "ASSETS"
+			},
+			"services": [
+				{
+					"binding": "WORKER_SELF_REFERENCE",
+					"service": "cloverfit-innovator-staging"
+				}
+			],
+			"d1_databases": [
+				{
+					"binding": "DB",
+					"database_name": "cloverfit-staging",
+					"database_id": "405e3f18-f928-4b65-a897-fa4092a5b9c3"
+				}
+			]
+		}
+	}
 }

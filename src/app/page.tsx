@@ -1,29 +1,37 @@
-import Nav from "@/components/landing/Nav";
-import Hero from "@/components/landing/Hero";
-import Problem from "@/components/landing/Problem";
-import Solution from "@/components/landing/Solution";
-import Origin from "@/components/landing/Origin";
-import Supervisor from "@/components/landing/Supervisor";
-import Booking from "@/components/landing/Booking";
-import ContactForm from "@/components/landing/ContactForm";
-import Footer from "@/components/landing/Footer";
-import ScrollReveal from "@/components/landing/ScrollReveal";
+import Analytics from "@/components/Analytics";
+import Header from "@/components/site/Header";
+import Hero from "@/components/site/Hero";
+import Problem from "@/components/site/Problem";
+import About from "@/components/site/About";
+import Trust from "@/components/site/Trust";
+import Features from "@/components/site/Features";
+import Flow from "@/components/site/Flow";
+import Score from "@/components/site/Score";
+import Benefits from "@/components/site/Benefits";
+import Conditions from "@/components/site/Conditions";
+import Pricing from "@/components/site/Pricing";
+import CTA from "@/components/site/CTA";
+import FAQ from "@/components/site/FAQ";
+import ContactForm from "@/components/site/ContactForm";
+import Footer from "@/components/site/Footer";
+import ScrollReveal from "@/components/site/ScrollReveal";
 
 const JSON_LD = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "Organization",
   name: "CloverFit",
   alternateName: "クローバーフィット",
-  description: "起業家・経営者のための60分フィジカル×メンタルトレーニングプログラム",
+  description:
+    "社員の心身コンディションを可視化する法人向けウェルビーイングプログラム",
   url: "https://clover-fit.com",
   logo: "https://clover-fit.com/images/cloverfit-logo.png",
-  image: "https://clover-fit.com/images/training-bg.jpg",
-  sameAs: ["https://www.instagram.com/cloverfit2026/"],
-  address: { "@type": "PostalAddress", addressCountry: "JP" },
-  offers: {
+  areaServed: "東京都",
+  makesOffer: {
     "@type": "Offer",
-    name: "体験予約",
-    url: "https://clover-fit.com/#booking",
+    name: "無料体験会",
+    url: "https://clover-fit.com/#contact",
+    price: "0",
+    priceCurrency: "JPY",
   },
 };
 
@@ -34,14 +42,21 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
       />
-      <Nav />
+      <Analytics />
+      <Header />
       <main>
         <Hero />
         <Problem />
-        <Solution />
-        <Origin />
-        <Supervisor />
-        <Booking />
+        <About />
+        <Trust />
+        <Features />
+        <Flow />
+        <Score />
+        <Benefits />
+        <Conditions />
+        <Pricing />
+        <CTA />
+        <FAQ />
         <ContactForm />
       </main>
       <Footer />

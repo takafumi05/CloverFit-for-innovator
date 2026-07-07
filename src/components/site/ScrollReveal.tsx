@@ -3,9 +3,8 @@
 import { useEffect } from "react";
 
 /**
- * 現行LPのスクロールリベール挙動を踏襲する。
  * `.r` を持つ要素を監視し、ビューポートに入ったら `.on` を付与。
- * 768px以下は即時全表示（現行と同じ）。
+ * 768px以下は即時全表示（globals.css 側で制御）。
  */
 export default function ScrollReveal() {
   useEffect(() => {
@@ -25,7 +24,7 @@ export default function ScrollReveal() {
           }
         });
       },
-      { threshold: 0.05, rootMargin: "0px 0px -20px 0px" }
+      { threshold: 0.05, rootMargin: "0px 0px -40px 0px" }
     );
 
     els.forEach((el) => {

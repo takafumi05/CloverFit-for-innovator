@@ -1,18 +1,30 @@
 @import "tailwindcss";
 
 /* =============================================
-   DESIGN TOKENS（現行LPの CSS 変数を Tailwind トークン化）
-   → text-accent / bg-card / border-border / font-inter などのユーティリティを生成
+   DESIGN TOKENS
+   - サイト（toB LP）: 白基調 + CloverFit グリーン
+   - admin: ダークテーマ（別トークンで併存）
 ============================================= */
 @theme {
-  --color-bg: #050505;
-  --color-card: #0f0f0f;
-  --color-border: #1a1a1a;
-  --color-tp: #e8e8e8;
-  --color-ts: #666666;
-  --color-accent: #00e05a;
+  /* --- site (light) --- */
+  --color-bg: #ffffff;
+  --color-surface: #f5f8f6;
+  --color-ink: #14201a;
+  --color-muted: #5b6b63;
+  --color-line: #e4eae6;
+  --color-green: #16a34a;
+  --color-green-dark: #15803d;
+  --color-green-tint: #eef8f1;
+  --color-soft: #eaf3fb; /* 補助のごく淡いブルー（データ表現用） */
 
-  /* next/font が定義する --ff-inter / --ff-noto を参照（トークン名の衝突を避ける） */
+  /* --- admin (dark) --- */
+  --color-admin-bg: #050505;
+  --color-admin-card: #0f0f0f;
+  --color-admin-ink: #e8e8e8;
+  --color-admin-muted: #666666;
+  --color-admin-accent: #00e05a;
+
+  /* --- fonts（next/font の --ff-* を参照） --- */
   --font-sans: var(--ff-noto), sans-serif;
   --font-inter: var(--ff-inter), sans-serif;
 }
@@ -26,39 +38,44 @@
   }
   body {
     background: var(--color-bg);
-    color: var(--color-tp);
+    color: var(--color-ink);
     font-family: var(--ff-noto), sans-serif;
-    font-weight: 300;
-    line-height: 1.9;
+    font-weight: 400;
+    line-height: 1.8;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
     overflow-x: hidden;
+  }
+  /* アンカースクロール時に固定ヘッダー分オフセット */
+  :where(section[id]) {
+    scroll-margin-top: 84px;
   }
 }
 
 /* =============================================
-   SCROLL REVEAL（現行 .r / .on / .d1..d4 を踏襲）
+   SCROLL REVEAL（.r / .on / .d1..d4）
    スマホ(<=768px)は即時表示
 ============================================= */
 .r {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 .r.on {
   opacity: 1;
   transform: none;
 }
 .d1 {
-  transition-delay: 0.1s;
+  transition-delay: 0.08s;
 }
 .d2 {
-  transition-delay: 0.2s;
+  transition-delay: 0.16s;
 }
 .d3 {
-  transition-delay: 0.3s;
+  transition-delay: 0.24s;
 }
 .d4 {
-  transition-delay: 0.4s;
+  transition-delay: 0.32s;
 }
 @media (max-width: 768px) {
   .r {
@@ -66,4 +83,19 @@
     transform: none;
     transition: none;
   }
+}
+
+/* =============================================
+   MARQUEE（フッターのテロップ）
+============================================= */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 24s linear infinite;
 }

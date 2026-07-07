@@ -9,13 +9,14 @@
     "start": "next start",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "deploy:staging": "opennextjs-cloudflare build && opennextjs-cloudflare deploy --env staging",
     "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "db:migrate:local": "wrangler d1 migrations apply cloverfit-production --local",
-    "db:migrate": "wrangler d1 migrations apply cloverfit-production --remote"
+    "db:migrate": "wrangler d1 migrations apply cloverfit-production --remote",
+    "db:migrate:staging": "wrangler d1 migrations apply cloverfit-staging --remote"
   },
   "dependencies": {
-    "@emailjs/browser": "^4",
     "@opennextjs/cloudflare": "^1",
     "next": "^15",
     "react": "^19",

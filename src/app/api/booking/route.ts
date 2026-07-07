@@ -9,12 +9,27 @@ export async function POST(req: Request) {
   const body = await req.json().catch(() => null);
   if (!body) return Response.json({ error: "Invalid request" }, { status: 400 });
 
-  const { name, email, phone, position, company, message } = body as Record<
-    string,
-    string | undefined
-  >;
+  const {
+    company,
+    name,
+    email,
+    phone,
+    message,
+    employee_count,
+    headcount,
+    timing,
+    venue,
+    plan,
+  } = body as Record<string, string | undefined>;
 
-  if (!name?.trim() || !email?.trim() || !position?.trim()) {
+  // 必須: 会社名・お名前・メール・電話・相談内容
+  if (
+    !company?.trim() ||
+    !name?.trim() ||
+    !email?.trim() ||
+    !phone?.trim() ||
+    !message?.trim()
+  ) {
     return Response.json(
       { error: "必須項目を入力してください" },
       { status: 400 }
@@ -27,32 +42,47 @@ export async function POST(req: Request) {
     );
   }
 
+  const clean = (s?: string) => s?.trim() || null;
+
   try {
     const db = getDb();
     await ensureSchema(db);
     const result = await db
       .prepare(
-        `INSERT INTO bookings (name, email, phone, position, company, message) VALUES (?, ?, ?, ?, ?, ?)`
+        `INSERT INTO bookings
+          (name, email, phone, position, company, message,
+           employee_count, headcount, timing, venue, plan)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
       )
       .bind(
         name.trim(),
         email.trim(),
-        phone?.trim() || null,
-        position.trim(),
-        company?.trim() || null,
-        message?.trim() || null
+        phone.trim(),
+        // position は旧スキーマ互換のため「選択プラン or 法人お問い合わせ」を格納
+        plan?.trim() || "法人お問い合わせ",
+        company.trim(),
+        message.trim(),
+        clean(employee_count),
+        clean(headcount),
+        clean(timing),
+        clean(venue),
+        clean(plan)
       )
       .run();
 
     // 通知メールは waitUntil でレスポンスをブロックせずに送信
     getExecutionCtx().waitUntil(
       sendBookingEmail({
+        company: company.trim(),
         name: name.trim(),
         email: email.trim(),
-        phone: phone?.trim() || null,
-        position: position.trim(),
-        company: company?.trim() || null,
-        message: message?.trim() || null,
+        phone: phone.trim(),
+        message: message.trim(),
+        employee_count: clean(employee_count),
+        headcount: clean(headcount),
+        timing: clean(timing),
+        venue: clean(venue),
+        plan: clean(plan),
       }).catch((e) => console.error("EmailJS Error:", e))
     );
 

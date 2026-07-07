@@ -5,9 +5,14 @@ export type Booking = {
   name: string;
   email: string;
   phone: string | null;
-  position: string;
+  position: string | null;
   company: string | null;
   message: string | null;
+  employee_count: string | null;
+  headcount: string | null;
+  timing: string | null;
+  venue: string | null;
+  plan: string | null;
   status: string;
   admin_note: string | null;
   created_at: string;

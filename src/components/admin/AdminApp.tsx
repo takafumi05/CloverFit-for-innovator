@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { POSITION_MAP } from "@/lib/constants";
 import {
   formatDateTime,
   statusLabel,
@@ -21,7 +20,7 @@ const STATUS_FILTERS = [
 const STATUS_OPTIONS = STATUS_FILTERS.filter((s) => s.value !== "all");
 
 const BADGE_CLASS: Record<string, string> = {
-  new: "bg-[rgba(0,224,90,0.1)] text-accent",
+  new: "bg-[rgba(0,224,90,0.1)] text-admin-accent",
   contacted: "bg-[rgba(90,150,224,0.1)] text-[#5a96e0]",
   scheduled: "bg-[rgba(224,180,90,0.1)] text-[#e0b45a]",
   completed: "bg-[rgba(150,224,90,0.1)] text-[#96e05a]",
@@ -48,22 +47,18 @@ export default function AdminApp() {
   const [token, setToken] = useState("");
   const [page, setPage] = useState<"dashboard" | "bookings">("dashboard");
 
-  // login
   const [loginUser, setLoginUser] = useState("admin");
   const [loginPass, setLoginPass] = useState("");
   const [loginErr, setLoginErr] = useState("");
 
-  // dashboard
   const [stats, setStats] = useState<Stats | null>(null);
   const [recent, setRecent] = useState<Booking[] | null>(null);
 
-  // bookings
   const [filter, setFilter] = useState("all");
   const [pageNum, setPageNum] = useState(1);
   const [bookings, setBookings] = useState<Booking[] | null>(null);
   const [total, setTotal] = useState(0);
 
-  // modal
   const [modal, setModal] = useState<Booking | null>(null);
   const [modalStatus, setModalStatus] = useState("new");
   const [modalNote, setModalNote] = useState("");
@@ -106,7 +101,6 @@ export default function AdminApp() {
     [authFetch, filter, pageNum, token]
   );
 
-  // 初回：localStorage のトークンを検証
   useEffect(() => {
     const stored = localStorage.getItem("cf_admin_token") || "";
     if (stored) {
@@ -126,7 +120,6 @@ export default function AdminApp() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // ページ/フィルタ変更時に一覧を再取得
   useEffect(() => {
     if (token && page === "bookings") loadBookings();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -180,12 +173,12 @@ export default function AdminApp() {
   // ---------- ログイン画面 ----------
   if (!token) {
     return (
-      <div className="min-h-screen flex items-center justify-center p-6">
-        <div className={`bg-card border ${BORDER} rounded-2xl px-12 py-14 w-full max-w-[400px]`}>
+      <div className="min-h-screen bg-admin-bg text-admin-ink flex items-center justify-center p-6">
+        <div className={`bg-admin-card border ${BORDER} rounded-2xl px-12 py-14 w-full max-w-[400px]`}>
           <div className="font-inter font-extrabold text-[24px] tracking-[-0.03em] mb-2">
             CloverFit
           </div>
-          <div className="text-[13px] text-ts mb-10">管理者ログイン</div>
+          <div className="text-[13px] text-admin-muted mb-10">管理者ログイン</div>
           {loginErr && (
             <div className="bg-[rgba(224,90,90,0.1)] border border-[rgba(224,90,90,0.3)] rounded-lg px-4 py-3 text-[14px] text-[#e05a5a] mb-4">
               {loginErr}
@@ -193,18 +186,18 @@ export default function AdminApp() {
           )}
           <div className="flex flex-col gap-4">
             <div>
-              <label className="font-inter text-[11px] font-semibold tracking-[0.1em] text-ts uppercase block mb-2">
+              <label className="font-inter text-[11px] font-semibold tracking-[0.1em] text-admin-muted uppercase block mb-2">
                 ユーザー名
               </label>
               <input
                 type="text"
                 value={loginUser}
                 onChange={(e) => setLoginUser(e.target.value)}
-                className={`w-full bg-bg border ${BORDER} rounded-lg px-4 py-3 text-tp font-sans text-[15px] outline-none focus:border-[#333] transition-colors`}
+                className={`w-full bg-admin-bg border ${BORDER} rounded-lg px-4 py-3 text-admin-ink font-sans text-[15px] outline-none focus:border-[#333] transition-colors`}
               />
             </div>
             <div>
-              <label className="font-inter text-[11px] font-semibold tracking-[0.1em] text-ts uppercase block mb-2">
+              <label className="font-inter text-[11px] font-semibold tracking-[0.1em] text-admin-muted uppercase block mb-2">
                 パスワード
               </label>
               <input
@@ -215,12 +208,12 @@ export default function AdminApp() {
                 onKeyDown={(e) => {
                   if (e.key === "Enter") doLogin();
                 }}
-                className={`w-full bg-bg border ${BORDER} rounded-lg px-4 py-3 text-tp font-sans text-[15px] outline-none focus:border-[#333] transition-colors`}
+                className={`w-full bg-admin-bg border ${BORDER} rounded-lg px-4 py-3 text-admin-ink font-sans text-[15px] outline-none focus:border-[#333] transition-colors`}
               />
             </div>
             <button
               onClick={doLogin}
-              className="bg-accent text-[#050505] rounded-lg py-3.5 font-sans font-bold text-[15px] cursor-pointer hover:bg-[#00c94f] transition-colors mt-2 w-full"
+              className="bg-admin-accent text-[#050505] rounded-lg py-3.5 font-sans font-bold text-[15px] cursor-pointer hover:bg-[#00c94f] transition-colors mt-2 w-full"
             >
               ログイン
             </button>
@@ -234,9 +227,9 @@ export default function AdminApp() {
 
   // ---------- 管理画面 ----------
   return (
-    <div className="grid grid-cols-[220px_1fr] min-h-screen max-[720px]:grid-cols-1">
+    <div className="grid grid-cols-[220px_1fr] min-h-screen bg-admin-bg text-admin-ink max-[720px]:grid-cols-1">
       {/* サイドバー */}
-      <div className={`bg-card border-r ${BORDER} py-6 flex flex-col sticky top-0 h-screen max-[720px]:static max-[720px]:h-auto`}>
+      <div className={`bg-admin-card border-r ${BORDER} py-6 flex flex-col sticky top-0 h-screen max-[720px]:static max-[720px]:h-auto`}>
         <div className={`font-inter font-extrabold text-[16px] tracking-[-0.03em] px-5 pb-6 border-b ${BORDER} mb-4`}>
           CloverFit
         </div>
@@ -257,7 +250,7 @@ export default function AdminApp() {
           <SidebarLink
             active={page === "bookings"}
             onClick={() => setPage("bookings")}
-            label="申し込み一覧"
+            label="お問い合わせ一覧"
             icon={
               <>
                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -289,56 +282,60 @@ export default function AdminApp() {
         {page === "dashboard" ? (
           <>
             <div className="mb-8">
-              <div className="font-inter font-bold text-[22px] tracking-[-0.02em] text-tp mb-1.5">
+              <div className="font-inter font-bold text-[22px] tracking-[-0.02em] text-admin-ink mb-1.5">
                 ダッシュボード
               </div>
-              <div className="text-[14px] text-ts">申し込み状況の概要</div>
+              <div className="text-[14px] text-admin-muted">
+                お問い合わせ状況の概要
+              </div>
             </div>
 
             <div className="grid grid-cols-5 gap-2.5 mb-8 max-[1200px]:grid-cols-3">
               {stats ? (
                 <>
-                  <StatCard label="総申し込み" num={stats.total} accent />
+                  <StatCard label="総件数" num={stats.total} accent />
                   <StatCard label="新規" num={stats.new_count ?? 0} />
                   <StatCard label="連絡済み" num={stats.contacted_count ?? 0} />
                   <StatCard label="日程確定" num={stats.scheduled_count ?? 0} />
                   <StatCard label="完了" num={stats.completed_count ?? 0} />
                 </>
               ) : (
-                <div className="text-center py-12 text-ts text-[14px]">
+                <div className="text-center py-12 text-admin-muted text-[14px]">
                   読み込み中...
                 </div>
               )}
             </div>
 
             <div className="mb-8">
-              <div className="font-inter font-bold text-[16px] tracking-[-0.02em] text-tp">
-                最近の申し込み
+              <div className="font-inter font-bold text-[16px] tracking-[-0.02em] text-admin-ink">
+                最近のお問い合わせ
               </div>
             </div>
             <div className="flex flex-col gap-0.5">
               {recent === null ? (
-                <div className="text-center py-12 text-ts text-[14px]">
+                <div className="text-center py-12 text-admin-muted text-[14px]">
                   読み込み中...
                 </div>
               ) : recent.length === 0 ? (
-                <div className="text-center py-16 text-ts">
-                  申し込みはまだありません
+                <div className="text-center py-16 text-admin-muted">
+                  お問い合わせはまだありません
                 </div>
               ) : (
                 recent.map((b) => (
                   <div
                     key={b.id}
-                    className={`bg-bg border ${BORDER} rounded-[10px] px-5 py-4 flex items-center justify-between gap-4`}
+                    className={`bg-admin-bg border ${BORDER} rounded-[10px] px-5 py-4 flex items-center justify-between gap-4`}
                   >
                     <div>
                       <div className="font-medium text-[15px] mb-0.5">
-                        {b.name}
+                        {b.company || "—"}
                       </div>
-                      <div className="text-[13px] text-ts">{b.email}</div>
+                      <div className="text-[13px] text-admin-muted">
+                        {b.name}／{b.email}
+                      </div>
                     </div>
                     <StatusBadge status={b.status} />
-                    <div className="font-inter text-[12px] text-ts">
+                    <div className="font-inter text-[12px] text-admin-muted">
                       {formatDateTime(b.created_at)}
                     </div>
                   </div>
@@ -349,11 +346,11 @@ export default function AdminApp() {
         ) : (
           <>
             <div className="mb-8">
-              <div className="font-inter font-bold text-[22px] tracking-[-0.02em] text-tp mb-1.5">
-                申し込み一覧
+              <div className="font-inter font-bold text-[22px] tracking-[-0.02em] text-admin-ink mb-1.5">
+                お問い合わせ一覧
               </div>
-              <div className="text-[14px] text-ts">
-                体験セッション申し込みの管理
+              <div className="text-[14px] text-admin-muted">
+                無料体験・導入相談の管理
               </div>
             </div>
 
@@ -367,8 +364,8 @@ export default function AdminApp() {
                   }}
                   className={`border rounded-lg px-4 py-2 font-inter text-[12px] font-medium cursor-pointer transition ${
                     filter === f.value
-                      ? "bg-[rgba(0,224,90,0.1)] border-[rgba(0,224,90,0.3)] text-accent"
-                      : `bg-card ${BORDER} text-ts hover:text-tp hover:border-[#333]`
+                      ? "bg-[rgba(0,224,90,0.1)] border-[rgba(0,224,90,0.3)] text-admin-accent"
+                      : `bg-admin-card ${BORDER} text-admin-muted hover:text-admin-ink hover:border-[#333]`
                   }`}
                 >
                   {f.label}
@@ -376,16 +373,16 @@ export default function AdminApp() {
               ))}
             </div>
 
-            <div className={`bg-card border ${BORDER} rounded-xl overflow-hidden`}>
+            <div className={`bg-admin-card border ${BORDER} rounded-xl overflow-hidden`}>
               <div className="overflow-x-auto">
                 <table className="w-full border-collapse">
                   <thead className={`border-b ${BORDER}`}>
                     <tr>
-                      {["名前", "立場", "会社・事業", "ステータス", "申し込み日", ""].map(
+                      {["会社名", "担当者", "興味プラン", "ステータス", "受付日", ""].map(
                         (h, i) => (
                           <th
                             key={i}
-                            className="px-5 py-3.5 text-left font-inter text-[11px] font-semibold tracking-[0.1em] text-ts uppercase"
+                            className="px-5 py-3.5 text-left font-inter text-[11px] font-semibold tracking-[0.1em] text-admin-muted uppercase whitespace-nowrap"
                           >
                             {h}
                           </th>
@@ -396,14 +393,14 @@ export default function AdminApp() {
                   <tbody>
                     {bookings === null ? (
                       <tr>
-                        <td colSpan={6} className="text-center py-12 text-ts text-[14px]">
+                        <td colSpan={6} className="text-center py-12 text-admin-muted text-[14px]">
                           読み込み中...
                         </td>
                       </tr>
                     ) : bookings.length === 0 ? (
                       <tr>
-                        <td colSpan={6} className="text-center py-16 text-ts">
-                          申し込みがありません
+                        <td colSpan={6} className="text-center py-16 text-admin-muted">
+                          お問い合わせがありません
                         </td>
                       </tr>
                     ) : (
@@ -413,27 +410,31 @@ export default function AdminApp() {
                           className={`border-b ${BORDER} last:border-b-0 hover:bg-white/[0.02] transition-colors`}
                         >
                           <td className="px-5 py-4">
-                            <div className="font-medium text-[14px] text-tp">
+                            <div className="font-medium text-[14px] text-admin-ink">
+                              {b.company || "—"}
+                            </div>
+                          </td>
+                          <td className="px-5 py-4">
+                            <div className="text-[14px] text-admin-ink">
                               {b.name}
                             </div>
-                            <div className="text-ts text-[13px]">{b.email}</div>
+                            <div className="text-admin-muted text-[13px]">
+                              {b.email}
+                            </div>
                           </td>
-                          <td className="px-5 py-4 text-[14px] text-tp">
-                            {POSITION_MAP[b.position] || b.position}
-                          </td>
-                          <td className="px-5 py-4 text-[14px] text-tp">
-                            {b.company || "—"}
+                          <td className="px-5 py-4 text-[14px] text-admin-ink whitespace-nowrap">
+                            {b.plan || "—"}
                           </td>
                           <td className="px-5 py-4">
                             <StatusBadge status={b.status} />
                           </td>
-                          <td className="px-5 py-4 text-[14px] text-tp">
+                          <td className="px-5 py-4 text-[13px] text-admin-ink whitespace-nowrap">
                             {formatDateTime(b.created_at)}
                           </td>
                           <td className="px-5 py-4">
                             <button
                               onClick={() => openModal(b)}
-                              className={`bg-transparent border ${BORDER} rounded-md px-3 py-1.5 text-[12px] text-ts cursor-pointer transition hover:border-[#444] hover:text-tp`}
+                              className={`bg-transparent border ${BORDER} rounded-md px-3 py-1.5 text-[12px] text-admin-muted cursor-pointer transition hover:border-[#444] hover:text-admin-ink`}
                             >
                               詳細
                             </button>
@@ -446,20 +447,20 @@ export default function AdminApp() {
               </div>
               {bookings && bookings.length > 0 && (
                 <div className={`flex items-center justify-end gap-2 px-5 py-4 border-t ${BORDER}`}>
-                  <span className="text-[13px] text-ts">
+                  <span className="text-[13px] text-admin-muted">
                     全{total}件 / {pageNum}/{totalPages}ページ
                   </span>
                   <button
                     onClick={() => setPageNum((p) => Math.max(1, p - 1))}
                     disabled={pageNum <= 1}
-                    className={`bg-transparent border ${BORDER} rounded-md px-3 py-1.5 text-[13px] text-ts cursor-pointer transition hover:text-tp hover:border-[#333] disabled:opacity-30 disabled:cursor-not-allowed`}
+                    className={`bg-transparent border ${BORDER} rounded-md px-3 py-1.5 text-[13px] text-admin-muted cursor-pointer transition hover:text-admin-ink hover:border-[#333] disabled:opacity-30 disabled:cursor-not-allowed`}
                   >
                     前へ
                   </button>
                   <button
                     onClick={() => setPageNum((p) => Math.min(totalPages, p + 1))}
                     disabled={pageNum >= totalPages}
-                    className={`bg-transparent border ${BORDER} rounded-md px-3 py-1.5 text-[13px] text-ts cursor-pointer transition hover:text-tp hover:border-[#333] disabled:opacity-30 disabled:cursor-not-allowed`}
+                    className={`bg-transparent border ${BORDER} rounded-md px-3 py-1.5 text-[13px] text-admin-muted cursor-pointer transition hover:text-admin-ink hover:border-[#333] disabled:opacity-30 disabled:cursor-not-allowed`}
                   >
                     次へ
                   </button>
@@ -478,39 +479,36 @@ export default function AdminApp() {
             if (e.target === e.currentTarget) setModal(null);
           }}
         >
-          <div className={`bg-card border ${BORDER} rounded-2xl w-full max-w-[560px] p-10 max-h-[90vh] overflow-y-auto`}>
+          <div className={`bg-admin-card border ${BORDER} rounded-2xl w-full max-w-[600px] p-10 max-h-[90vh] overflow-y-auto`}>
             <div className="font-inter font-bold text-[18px] mb-6">
-              申し込み詳細
+              お問い合わせ詳細
             </div>
             <div className="grid grid-cols-2 gap-4 mb-6">
-              <ModalField label="名前" value={modal.name} />
-              <ModalField
-                label="立場"
-                value={POSITION_MAP[modal.position] || modal.position}
-              />
+              <ModalField label="会社名" value={modal.company || "—"} />
+              <ModalField label="担当者名" value={modal.name} />
               <ModalField label="メール" value={modal.email} />
               <ModalField label="電話" value={modal.phone || "—"} />
-              <ModalField label="会社・事業" value={modal.company || "—"} full />
+              <ModalField label="従業員数" value={modal.employee_count || "—"} />
+              <ModalField label="実施希望人数" value={modal.headcount || "—"} />
+              <ModalField label="実施希望時期" value={modal.timing || "—"} />
+              <ModalField label="実施場所の有無" value={modal.venue || "—"} />
+              <ModalField label="興味のあるプラン" value={modal.plan || "—"} full />
+              <ModalField label="相談内容" value={modal.message || "—"} full />
               <ModalField
-                label="期待すること"
-                value={modal.message || "—"}
-                full
-              />
-              <ModalField
-                label="申し込み日"
+                label="受付日"
                 value={formatDateTime(modal.created_at)}
                 full
               />
             </div>
 
             <div className="mb-4">
-              <label className="font-inter text-[10px] font-semibold tracking-[0.1em] text-ts uppercase block mb-1.5">
+              <label className="font-inter text-[10px] font-semibold tracking-[0.1em] text-admin-muted uppercase block mb-1.5">
                 ステータス
               </label>
               <select
                 value={modalStatus}
                 onChange={(e) => setModalStatus(e.target.value)}
-                className={`w-full bg-bg border ${BORDER} rounded-lg px-3.5 py-2.5 text-tp font-sans text-[14px] outline-none appearance-none`}
+                className={`w-full bg-admin-bg border ${BORDER} rounded-lg px-3.5 py-2.5 text-admin-ink font-sans text-[14px] outline-none appearance-none`}
               >
                 {STATUS_OPTIONS.map((s) => (
                   <option key={s.value} value={s.value}>
@@ -520,26 +518,26 @@ export default function AdminApp() {
               </select>
             </div>
             <div>
-              <label className="font-inter text-[10px] font-semibold tracking-[0.1em] text-ts uppercase block mb-1.5">
+              <label className="font-inter text-[10px] font-semibold tracking-[0.1em] text-admin-muted uppercase block mb-1.5">
                 管理メモ
               </label>
               <textarea
                 value={modalNote}
                 onChange={(e) => setModalNote(e.target.value)}
                 placeholder="連絡日時、メモなど..."
-                className={`w-full bg-bg border ${BORDER} rounded-lg px-3.5 py-2.5 text-tp font-sans text-[14px] outline-none resize-y min-h-[80px]`}
+                className={`w-full bg-admin-bg border ${BORDER} rounded-lg px-3.5 py-2.5 text-admin-ink font-sans text-[14px] outline-none resize-y min-h-[80px]`}
               />
             </div>
             <div className="flex gap-2.5 justify-end mt-6">
               <button
                 onClick={() => setModal(null)}
-                className={`bg-transparent border ${BORDER} rounded-lg px-5 py-2.5 text-ts cursor-pointer text-[14px]`}
+                className={`bg-transparent border ${BORDER} rounded-lg px-5 py-2.5 text-admin-muted cursor-pointer text-[14px]`}
               >
                 キャンセル
               </button>
               <button
                 onClick={saveBooking}
-                className="bg-accent border-none rounded-lg px-6 py-2.5 text-[#050505] font-bold cursor-pointer text-[14px]"
+                className="bg-admin-accent border-none rounded-lg px-6 py-2.5 text-[#050505] font-bold cursor-pointer text-[14px]"
               >
                 保存する
               </button>
@@ -565,8 +563,8 @@ function SidebarLink({
   return (
     <button
       onClick={onClick}
-      className={`flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[14px] no-underline cursor-pointer border-none bg-transparent w-full text-left transition-colors hover:bg-white/5 hover:text-tp ${
-        active ? "bg-white/5 text-accent" : "text-ts"
+      className={`flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[14px] no-underline cursor-pointer border-none bg-transparent w-full text-left transition-colors hover:bg-white/5 hover:text-admin-ink ${
+        active ? "bg-white/5 text-admin-accent" : "text-admin-muted"
       }`}
     >
       <svg
@@ -594,13 +592,13 @@ function StatCard({
   accent?: boolean;
 }) {
   return (
-    <div className={`bg-card border ${BORDER} rounded-xl px-5 py-6`}>
-      <span className="font-inter text-[10px] font-semibold tracking-[0.15em] text-ts uppercase block mb-3">
+    <div className={`bg-admin-card border ${BORDER} rounded-xl px-5 py-6`}>
+      <span className="font-inter text-[10px] font-semibold tracking-[0.15em] text-admin-muted uppercase block mb-3">
         {label}
       </span>
       <span
         className={`font-inter font-extrabold text-[32px] tracking-[-0.03em] block ${
-          accent ? "text-accent" : "text-tp"
+          accent ? "text-admin-accent" : "text-admin-ink"
         }`}
       >
         {num}
@@ -620,10 +618,12 @@ function ModalField({
 }) {
   return (
     <div className={full ? "col-span-2" : ""}>
-      <label className="font-inter text-[10px] font-semibold tracking-[0.1em] text-ts uppercase block mb-1.5">
+      <label className="font-inter text-[10px] font-semibold tracking-[0.1em] text-admin-muted uppercase block mb-1.5">
         {label}
       </label>
-      <p className="text-[14px] text-tp leading-[1.6] break-words">{value}</p>
+      <p className="text-[14px] text-admin-ink leading-[1.6] break-words whitespace-pre-wrap">
+        {value}
+      </p>
     </div>
   );
 }

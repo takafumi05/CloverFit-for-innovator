@@ -4,41 +4,41 @@ import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "600", "800"],
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--ff-inter",
   display: "swap",
 });
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
-  weight: ["300", "500", "700", "900"],
+  weight: ["400", "500", "700", "900"],
   variable: "--ff-noto",
   display: "swap",
   preload: false,
 });
 
 const SITE_URL = "https://clover-fit.com";
-const OG_IMAGE = `${SITE_URL}/images/training-bg.jpg`;
+const OG_IMAGE = `${SITE_URL}/images/cloverfit-logo.png`;
 const TITLE =
-  "CloverFit（クローバーフィット）| 起業家・経営者のための60分フィジカル×メンタルトレーニング";
+  "CloverFit｜社員の心身コンディションを可視化する法人向けウェルビーイングプログラム";
 const DESCRIPTION =
-  "CloverFit（クローバーフィット）は起業家・経営者限定のプログラム。身体・心・仲間が60分で揃うクローズドコミュニティ。慶應義塾大学名誉教授監修のWell-being研究に基づくメンタルケア×機能的トレーニング。まずは体験予約から。";
+  "CloverFitは、心拍測定と運動を組み合わせ、社員の疲労・回復力・集中状態を可視化する法人向けウェルビーイングプログラムです。社内ジム不要、会議室やラウンジで実施可能。まずは無料体験会から。";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: TITLE,
   description: DESCRIPTION,
   keywords: [
-    "クローバーフィット",
-    "CloverFit",
-    "起業家 トレーニング",
-    "経営者 メンタルヘルス",
-    "起業家 フィットネス",
-    "経営者 ジム",
-    "Well-being",
-    "メンタルケア",
-    "起業家 コミュニティ",
-    "経営者 健康",
+    "法人向け フィットネス",
+    "健康経営 福利厚生",
+    "社員 健康施策",
+    "オフィス フィットネス",
+    "社内イベント 健康",
+    "ウェルビーイング 法人",
+    "社員 コンディショニング",
+    "社内ジム 活用",
+    "福利厚生 運動",
+    "営業組織 コンディショニング",
   ],
   authors: [{ name: "CloverFit" }],
   alternates: { canonical: "/" },
@@ -49,8 +49,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: TITLE,
-    description:
-      "起業家・経営者限定。身体・心・仲間が60分で揃うクローズドプログラム。慶應義塾大学名誉教授監修。まずは体験予約から。",
+    description: DESCRIPTION,
     type: "website",
     url: SITE_URL,
     siteName: "CloverFit",
@@ -60,8 +59,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: TITLE,
-    description:
-      "起業家・経営者限定。身体・心・仲間が60分で揃うクローズドプログラム。慶應義塾大学名誉教授監修。",
+    description: DESCRIPTION,
     images: [OG_IMAGE],
   },
 };
