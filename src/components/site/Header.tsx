@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Container } from "./primitives";
-import { CloverMark, FEATURE_ICONS, LineIcon } from "./icons";
+import { CloverMark, FEATURE_ICONS } from "./icons";
 
 const SERVICE_LINKS = [
   {
@@ -144,13 +144,12 @@ export default function Header() {
           </a>
           <a
             href="#contact"
-            className={`inline-flex items-center gap-2 font-sans font-bold text-[14px] px-5 py-2.5 rounded-[3px] transition-colors duration-200 no-underline ${
+            className={`inline-flex items-center justify-center font-sans font-bold text-[14px] px-5 py-2.5 rounded-[3px] transition-colors duration-200 no-underline ${
               solid
                 ? "bg-green text-white hover:bg-green-dark shadow-[0_6px_18px_rgba(22,163,74,0.22)]"
                 : "bg-white text-green-dark hover:bg-green-tint"
             }`}
           >
-            <LineIcon className="w-[18px] h-[18px]" />
             無料体験を申し込む
           </a>
         </div>
@@ -242,9 +241,8 @@ export default function Header() {
           <a
             href="#contact"
             onClick={() => setOpen(false)}
-            className="mt-4 inline-flex items-center justify-center gap-2 font-sans font-bold text-[15px] px-6 py-3.5 rounded-[3px] bg-green text-white no-underline"
+            className="mt-4 inline-flex items-center justify-center font-sans font-bold text-[15px] px-6 py-3.5 rounded-[3px] bg-green text-white no-underline"
           >
-            <LineIcon className="w-[18px] h-[18px]" />
             無料体験を申し込む
           </a>
         </div>

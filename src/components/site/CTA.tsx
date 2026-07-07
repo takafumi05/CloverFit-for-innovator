@@ -1,5 +1,5 @@
 import { Container } from "./primitives";
-import { ArrowIcon, LineIcon } from "./icons";
+import { ArrowIcon } from "./icons";
 
 export default function CTA() {
   return (
@@ -7,7 +7,7 @@ export default function CTA() {
       {/* 背景写真（コミュニティ） */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/images/288968.jpg"
+        src="/images/288974.jpg"
         alt=""
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover"
@@ -28,9 +28,8 @@ export default function CTA() {
         <div className="mt-9 flex flex-wrap justify-center gap-3">
           <a
             href="#contact"
-            className="group inline-flex items-center gap-2.5 font-sans font-bold text-[15px] pl-6 pr-6 py-4 rounded-full bg-white text-green-dark hover:bg-green-tint transition-colors duration-200 no-underline shadow-[0_12px_34px_rgba(0,0,0,0.2)]"
+            className="group inline-flex items-center gap-2.5 font-sans font-bold text-[15px] pl-8 pr-6 py-4 rounded-full bg-white text-green-dark hover:bg-green-tint transition-colors duration-200 no-underline shadow-[0_12px_34px_rgba(0,0,0,0.2)]"
           >
-            <LineIcon className="w-5 h-5 text-[#06C755]" />
             無料体験会を申し込む
             <ArrowIcon className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" />
           </a>

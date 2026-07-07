@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 const LIMIT = 20;
 
 export async function GET(req: Request) {
-  const auth = requireAdmin(req);
+  const auth = await requireAdmin(req);
   if (auth instanceof Response) return auth;
 
   const { searchParams } = new URL(req.url);

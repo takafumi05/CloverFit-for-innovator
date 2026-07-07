@@ -7,7 +7,7 @@ export async function PATCH(
   req: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const auth = requireAdmin(req);
+  const auth = await requireAdmin(req);
   if (auth instanceof Response) return auth;
 
   const { id } = await params;

@@ -1,6 +1,5 @@
 import { PLANS } from "@/lib/site-content";
 import { Container, Section, SectionHead } from "./primitives";
-import { LineIcon } from "./icons";
 
 export default function Pricing() {
   return (
@@ -43,13 +42,12 @@ export default function Pricing() {
               </p>
               <a
                 href="#contact"
-                className={`mt-6 inline-flex items-center justify-center gap-2 font-sans font-bold text-[13.5px] px-4 py-3 rounded-[3px] transition-colors duration-200 no-underline ${
+                className={`mt-6 inline-flex items-center justify-center font-sans font-bold text-[13.5px] px-4 py-3 rounded-[3px] transition-colors duration-200 no-underline ${
                   p.featured
                     ? "bg-green text-white hover:bg-green-dark"
                     : "bg-white text-ink border border-line hover:border-green hover:text-green"
                 }`}
               >
-                {p.featured && <LineIcon className="w-[18px] h-[18px]" />}
                 {p.featured ? "無料体験を申し込む" : "相談する"}
               </a>
             </div>

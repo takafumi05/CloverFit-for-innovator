@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import { PLAN_OPTIONS } from "@/lib/site-content";
+import { LINE_URL } from "@/lib/constants";
 import { Container, Section, SectionHead } from "./primitives";
+import { LineIcon } from "./icons";
 
 type Values = {
   company: string;
@@ -52,8 +54,9 @@ const VENUE_OPTIONS = [
   "わからない",
 ];
 
+// モバイルは 16px（iOS Safari のフォーカス時オートズーム防止）／PCは 14.5px
 const inputBase =
-  "w-full bg-white rounded-[4px] text-ink text-[14.5px] px-4 py-3 outline-none transition-colors";
+  "w-full bg-white rounded-[4px] text-ink text-[16px] md:text-[14.5px] px-4 py-3 outline-none transition-colors";
 
 export default function ContactForm() {
   const [v, setV] = useState<Values>(EMPTY);
@@ -286,6 +289,37 @@ export default function ContactForm() {
               </p>
             </form>
           )}
+
+          {/* LINEで相談（補助チャネル） */}
+          <div className="mt-8 pt-8 border-t border-line text-center">
+            <p className="text-[14px] text-muted">
+              お急ぎの方・まず気軽に聞きたい方は、公式LINEでも相談いただけます。
+            </p>
+            <div className="mt-5 flex flex-col sm:flex-row items-center justify-center gap-6">
+              <a
+                href={LINE_URL}
+                target="_blank"
+                rel="noopener"
+                className="inline-flex items-center gap-2.5 font-sans font-bold text-[15px] px-7 py-3.5 rounded-[3px] bg-[#06C755] text-white hover:bg-[#05b34c] transition-colors duration-200 no-underline shadow-[0_8px_22px_rgba(6,199,85,0.25)]"
+              >
+                <LineIcon className="w-5 h-5" />
+                公式LINEで相談する
+              </a>
+              <div className="flex items-center gap-3">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/line-qr.png"
+                  alt="CloverFit 公式LINE QRコード"
+                  className="w-[84px] h-[84px] rounded-[6px] border border-line bg-white p-1.5"
+                />
+                <span className="text-[12px] text-muted leading-relaxed text-left">
+                  QRコードから
+                  <br />
+                  友だち追加
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </Container>
     </Section>

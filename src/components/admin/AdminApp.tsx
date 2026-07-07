@@ -30,6 +30,17 @@ const BADGE_CLASS: Record<string, string> = {
 const BORDER = "border-[#1e1e1e]";
 const PAGE_LIMIT = 20;
 
+// JWT ペイロードの exp（秒）を ms で返す。デコード不可なら 0（=無効扱い）
+function tokenExpMs(token: string): number {
+  try {
+    const b64 = token.split(".")[1].replace(/-/g, "+").replace(/_/g, "/");
+    const json = JSON.parse(atob(b64 + "=".repeat((4 - (b64.length % 4)) % 4)));
+    return typeof json.exp === "number" ? json.exp * 1000 : 0;
+  } catch {
+    return 0;
+  }
+}
+
 function StatusBadge({ status }: { status: string }) {
   return (
     <span
@@ -103,18 +114,11 @@ export default function AdminApp() {
 
   useEffect(() => {
     const stored = localStorage.getItem("cf_admin_token") || "";
-    if (stored) {
-      try {
-        const p = JSON.parse(atob(stored));
-        if (p.exp > Date.now()) {
-          setToken(stored);
-          loadDashboard(stored);
-        } else {
-          localStorage.removeItem("cf_admin_token");
-        }
-      } catch {
-        localStorage.removeItem("cf_admin_token");
-      }
+    if (stored && tokenExpMs(stored) > Date.now()) {
+      setToken(stored);
+      loadDashboard(stored);
+    } else if (stored) {
+      localStorage.removeItem("cf_admin_token");
     }
     setReady(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps

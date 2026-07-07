@@ -1,9 +1,7 @@
-import { ensureSchema, getDb } from "@/lib/db";
 import { issueToken } from "@/lib/auth";
+import { getEnv } from "@/lib/env";
 
 export const dynamic = "force-dynamic";
-
-const MASTER_PASSWORD = "cloverfit2026";
 
 export async function POST(req: Request) {
   const body = await req.json().catch(() => null);
@@ -14,28 +12,24 @@ export async function POST(req: Request) {
     password?: string;
   };
 
-  try {
-    const db = getDb();
-    await ensureSchema(db);
-    const admin = await db
-      .prepare("SELECT * FROM admins WHERE username = ?")
-      .bind(username)
-      .first<{ id: number; username: string; password_hash: string }>();
+  const adminUsername = getEnv("ADMIN_USERNAME") ?? "admin";
+  const adminPassword = getEnv("ADMIN_PASSWORD");
 
-    // 保存ハッシュ or マスターパスワードで認証（現行踏襲）
-    if (
-      !admin ||
-      (password !== admin.password_hash && password !== MASTER_PASSWORD)
-    ) {
-      return Response.json(
-        { error: "ユーザー名またはパスワードが違います" },
-        { status: 401 }
-      );
-    }
-
-    const token = issueToken({ id: admin.id, username: admin.username });
-    return Response.json({ success: true, token, username: admin.username });
-  } catch {
-    return Response.json({ error: "サーバーエラー" }, { status: 500 });
+  // 認証情報が未設定ならログイン不可（シークレット必須）
+  if (!adminPassword || !getEnv("ADMIN_JWT_SECRET")) {
+    console.error(
+      "Admin auth is not configured: set ADMIN_PASSWORD and ADMIN_JWT_SECRET"
+    );
+    return Response.json({ error: "サーバー設定エラー" }, { status: 500 });
   }
+
+  if (username !== adminUsername || password !== adminPassword) {
+    return Response.json(
+      { error: "ユーザー名またはパスワードが違います" },
+      { status: 401 }
+    );
+  }
+
+  const token = await issueToken(adminUsername);
+  return Response.json({ success: true, token, username: adminUsername });
 }

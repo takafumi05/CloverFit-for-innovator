@@ -1,5 +1,5 @@
 import { Container } from "./primitives";
-import { CheckIcon, LineIcon } from "./icons";
+import { CheckIcon } from "./icons";
 
 const FV_POINTS = [
   "法人向け",
@@ -18,10 +18,10 @@ export default function Hero() {
       {/* 全幅の背景写真 */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/images/288974.jpg"
+        src="/images/hero-image.jpg"
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover object-[64%_center]"
+        className="absolute inset-0 w-full h-full object-cover object-[50%_center]"
       />
       {/* グリーングラデーション（左を濃く、右で写真を見せる） */}
       <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(9,58,33,0.96)_0%,rgba(13,92,49,0.86)_40%,rgba(22,163,74,0.42)_66%,rgba(22,163,74,0.08)_100%)]" />
@@ -56,9 +56,8 @@ export default function Hero() {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2.5 font-sans font-bold text-[15px] px-7 py-3.5 rounded-[3px] bg-white text-green-dark hover:bg-green-tint transition-colors duration-200 no-underline shadow-[0_10px_30px_rgba(0,0,0,0.18)]"
+              className="inline-flex items-center justify-center font-sans font-bold text-[15px] px-7 py-3.5 rounded-[3px] bg-white text-green-dark hover:bg-green-tint transition-colors duration-200 no-underline shadow-[0_10px_30px_rgba(0,0,0,0.18)]"
             >
-              <LineIcon className="w-5 h-5 text-[#06C755]" />
               無料体験会を申し込む
             </a>
             <a

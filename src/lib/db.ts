@@ -24,8 +24,10 @@ const B2B_COLUMNS = [
  * 既存DB（旧スキーマ）向けには不足している toB 列を冪等に追加する。
  */
 export async function ensureSchema(db: D1Database): Promise<void> {
-  await db.batch([
-    db.prepare(`CREATE TABLE IF NOT EXISTS bookings (
+  // 管理者認証は env(ADMIN_*) + JWT で行うため admins テーブルは不要
+  await db
+    .prepare(
+      `CREATE TABLE IF NOT EXISTS bookings (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL,
       email TEXT NOT NULL,
@@ -42,17 +44,9 @@ export async function ensureSchema(db: D1Database): Promise<void> {
       admin_note TEXT,
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
       updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
-    )`),
-    db.prepare(`CREATE TABLE IF NOT EXISTS admins (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      username TEXT UNIQUE NOT NULL,
-      password_hash TEXT NOT NULL,
-      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-    )`),
-    db.prepare(
-      `INSERT OR IGNORE INTO admins (username, password_hash) VALUES ('admin', 'cf2026admin')`
-    ),
-  ]);
+    )`
+    )
+    .run();
 
   // 既存DBに不足列があれば追加（新規DBでは CREATE TABLE 済みなので何もしない）
   const info = await db.prepare(`PRAGMA table_info(bookings)`).all();

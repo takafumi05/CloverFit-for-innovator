@@ -1,5 +1,5 @@
 import { Container } from "./primitives";
-import { ArrowIcon, InstagramIcon, LineIcon } from "./icons";
+import { ArrowIcon, InstagramIcon } from "./icons";
 
 const FOOTER_LINKS = [
   { label: "課題", href: "#problem" },
@@ -48,9 +48,8 @@ export default function Footer() {
             </p>
             <a
               href="#contact"
-              className="group mt-6 inline-flex items-center gap-2.5 font-sans font-bold text-[15px] pl-5 pr-5 py-3.5 rounded-full bg-green text-white hover:bg-green-dark transition-colors no-underline"
+              className="group mt-6 inline-flex items-center gap-2.5 font-sans font-bold text-[15px] pl-7 pr-5 py-3.5 rounded-full bg-green text-white hover:bg-green-dark transition-colors no-underline"
             >
-              <LineIcon className="w-5 h-5" />
               無料体験を申し込む
               <ArrowIcon className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" />
             </a>
