@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
 /* =============================================
    DESIGN TOKENS
@@ -16,13 +17,6 @@
   --color-green-dark: #15803d;
   --color-green-tint: #eef8f1;
   --color-soft: #eaf3fb; /* 補助のごく淡いブルー（データ表現用） */
-
-  /* --- admin (dark) --- */
-  --color-admin-bg: #050505;
-  --color-admin-card: #0f0f0f;
-  --color-admin-ink: #e8e8e8;
-  --color-admin-muted: #666666;
-  --color-admin-accent: #00e05a;
 
   /* --- fonts（next/font の --ff-* を参照） --- */
   --font-sans: var(--ff-noto), sans-serif;

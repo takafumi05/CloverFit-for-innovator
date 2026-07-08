@@ -63,3 +63,42 @@ export async function ensureSchema(db: D1Database): Promise<void> {
     }
   }
 }
+
+/** アクセス計測イベント用テーブル（軽量なので booking とは分離） */
+export async function ensureAnalytics(db: D1Database): Promise<void> {
+  await db.batch([
+    db.prepare(`CREATE TABLE IF NOT EXISTS analytics_events (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      session_id TEXT,
+      type TEXT,
+      path TEXT,
+      section TEXT,
+      duration_ms INTEGER,
+      referrer TEXT,
+      country TEXT,
+      region TEXT,
+      city TEXT,
+      device TEXT,
+      browser TEXT,
+      os TEXT,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )`),
+    db.prepare(
+      `CREATE INDEX IF NOT EXISTS idx_analytics_created ON analytics_events (created_at)`
+    ),
+    db.prepare(
+      `CREATE INDEX IF NOT EXISTS idx_analytics_type ON analytics_events (type)`
+    ),
+  ]);
+
+  // 既存の analytics_events に region 列が無ければ追加（冪等）
+  const info = await db.prepare(`PRAGMA table_info(analytics_events)`).all();
+  const cols = new Set((info.results as { name: string }[]).map((r) => r.name));
+  if (!cols.has("region")) {
+    try {
+      await db.prepare(`ALTER TABLE analytics_events ADD COLUMN region TEXT`).run();
+    } catch {
+      // 既に存在
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import { SAMPLE_REPORT } from "@/lib/site-content";
-import { CloverMark } from "./icons";
+import { BrandMark } from "./icons";
 
 export default function ReportCard() {
   const { score, metrics, condition, note, nextAction } = SAMPLE_REPORT;
@@ -18,7 +18,7 @@ export default function ReportCard() {
         {/* ヘッダー */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <CloverMark className="w-5 h-5 text-green" />
+            <BrandMark className="h-5 w-auto" />
             <span className="font-inter font-bold text-[13px] tracking-tight text-ink">
               CloverFit スコアレポート
             </span>

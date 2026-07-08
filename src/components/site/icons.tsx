@@ -1,5 +1,23 @@
 import type { SVGProps } from "react";
 
+/** CloverFit 実ロゴのクローバーマーク（透過PNG）。white=true でヒーロー等の暗背景向けに白化 */
+export function BrandMark({
+  className = "",
+  white = false,
+}: {
+  className?: string;
+  white?: boolean;
+}) {
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/images/cloverfit-mark.png"
+      alt="CloverFit"
+      className={`${className} ${white ? "[filter:brightness(0)_invert(1)]" : ""}`}
+    />
+  );
+}
+
 /** CloverFit ブランドマーク（四つ葉クローバー）。色は className の text-* で指定 */
 export function CloverMark({ className, ...props }: SVGProps<SVGSVGElement>) {
   const leaf =

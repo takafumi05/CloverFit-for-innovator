@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Container } from "./primitives";
-import { CloverMark, FEATURE_ICONS } from "./icons";
+import { BrandMark, FEATURE_ICONS } from "./icons";
 
 const SERVICE_LINKS = [
   {
@@ -74,9 +74,7 @@ export default function Header() {
     >
       <Container className="flex items-center justify-between h-16">
         <a href="#top" className="flex items-center gap-2 no-underline">
-          <CloverMark
-            className={`w-7 h-7 ${solid ? "text-green" : "text-white"}`}
-          />
+          <BrandMark className="h-8 w-auto" white={!solid} />
           <span
             className={`font-inter font-extrabold text-[19px] tracking-[-0.02em] ${
               solid ? "text-ink" : "text-white"

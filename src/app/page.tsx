@@ -1,4 +1,5 @@
 import Analytics from "@/components/Analytics";
+import Tracker from "@/components/Tracker";
 import Header from "@/components/site/Header";
 import Hero from "@/components/site/Hero";
 import Problem from "@/components/site/Problem";
@@ -43,6 +44,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
       />
       <Analytics />
+      <Tracker />
       <Header />
       <main>
         <Hero />
