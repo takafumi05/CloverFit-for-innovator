@@ -1,10 +1,12 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { BrandMark } from "@/components/site/icons";
 
-export type AdminPage = "dashboard" | "bookings" | "analytics";
-
-const NAV: { key: AdminPage; label: string; icon: React.ReactNode }[] = [
+const NAV: { href: string; label: string; icon: React.ReactNode }[] = [
   {
-    key: "dashboard",
+    href: "/admin",
     label: "ダッシュボード",
     icon: (
       <>
@@ -16,7 +18,7 @@ const NAV: { key: AdminPage; label: string; icon: React.ReactNode }[] = [
     ),
   },
   {
-    key: "bookings",
+    href: "/admin/contacts",
     label: "お問い合わせ",
     icon: (
       <>
@@ -28,7 +30,7 @@ const NAV: { key: AdminPage; label: string; icon: React.ReactNode }[] = [
     ),
   },
   {
-    key: "analytics",
+    href: "/admin/analytics",
     label: "アクセス解析",
     icon: (
       <>
@@ -41,18 +43,19 @@ const NAV: { key: AdminPage; label: string; icon: React.ReactNode }[] = [
   },
 ];
 
-export default function Sidebar({
-  page,
-  onNavigate,
-  onLogout,
-}: {
-  page: AdminPage;
-  onNavigate: (p: AdminPage) => void;
-  onLogout: () => void;
-}) {
+function isActive(pathname: string, href: string): boolean {
+  return href === "/admin" ? pathname === "/admin" : pathname.startsWith(href);
+}
+
+export default function Sidebar({ onLogout }: { onLogout: () => void }) {
+  const pathname = usePathname();
+
   return (
     <aside className="bg-white/70 backdrop-blur-xl border-r border-line sticky top-0 h-screen flex flex-col py-5 max-[820px]:static max-[820px]:h-auto">
-      <div className="px-5 pb-5 border-b border-line flex items-center gap-2">
+      <Link
+        href="/admin"
+        className="px-5 pb-5 border-b border-line flex items-center gap-2 no-underline"
+      >
         <BrandMark className="h-6 w-auto" />
         <span className="font-inter font-extrabold text-[16px] tracking-[-0.02em] text-ink">
           Clover<span className="text-green">Fit</span>
@@ -60,7 +63,7 @@ export default function Sidebar({
         <span className="ml-auto text-[10px] font-semibold tracking-[0.1em] text-muted uppercase">
           Admin
         </span>
-      </div>
+      </Link>
 
       <div className="px-3 pt-4 flex-1">
         <p className="px-2 mb-2 text-[10px] font-semibold tracking-[0.16em] text-muted uppercase">
@@ -68,12 +71,12 @@ export default function Sidebar({
         </p>
         <div className="flex flex-col gap-1">
           {NAV.map((n) => {
-            const active = page === n.key;
+            const active = isActive(pathname, n.href);
             return (
-              <button
-                key={n.key}
-                onClick={() => onNavigate(n.key)}
-                className={`relative flex items-center gap-2.5 px-3 py-2.5 rounded-[6px] text-[14px] w-full text-left transition-colors ${
+              <Link
+                key={n.href}
+                href={n.href}
+                className={`relative flex items-center gap-2.5 px-3 py-2.5 rounded-[6px] text-[14px] no-underline transition-colors ${
                   active
                     ? "bg-green-tint text-green font-semibold"
                     : "text-ink/70 hover:bg-surface hover:text-ink"
@@ -95,7 +98,7 @@ export default function Sidebar({
                   {n.icon}
                 </svg>
                 {n.label}
-              </button>
+              </Link>
             );
           })}
         </div>
